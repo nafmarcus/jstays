@@ -41,8 +41,14 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
 end
+group :development do
+	gem 'better_errors'
+	gem 'binding_of_caller'
+end
+	
 group :test do
   gem 'selenium-webdriver'
+  gem 'factory_girl_rails', '4.2.1'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
