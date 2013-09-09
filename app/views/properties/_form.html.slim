@@ -1,0 +1,101 @@
+= form_for(@property) do |f|
+	-if @property.errors.any?
+		#error_explanation
+			h2
+				| #{pluralize(@property.errors.count, "error")} prohibited this property from being saved:
+
+			ul
+			-@property.errors.full_messages.each do |msg|
+				li
+					= msg
+
+	.form-item
+		= f.label(:title, "Property Title")
+		= f.text_field(:title)
+
+	.form-item
+		= f.label(:description)
+		= f.text_area(:description)
+
+	.form-item
+		= f.label(:property_type)
+		= f.select(:property_type, PropertyTypes.collect {|k,v| [v,k]})
+
+	.form-item2
+		.itcs-label Sharing
+		- Sharing.each do |k, v|
+			= f.radio_button(:sharing, k)
+			= f.label("sharing_#{k}".to_sym, v)
+
+	.form-item2
+		.jstays-label Duration
+		- Duration.each do |k, v|
+			= f.radio_button(:duration, k)
+			= f.label("duration_#{k}".to_sym, v)
+
+	.form-item
+		= f.label(:currency)
+		= f.select(:currency, Currencies.collect {|k,v| [v,k]})
+
+	.form-item1
+		.jstays-label.required Rates
+		table
+			tr
+				th
+				th Regular
+				th High Season
+			tr
+				td Daily
+				td 
+					= f.text_field(:rate_daily_regular)
+				td 
+					= f.text_field(:rate_daily_high)
+			tr
+				td Weekly
+				td 
+					= f.text_field(:rate_weekly_regular)
+				td 
+					= f.text_field(:rate_weekly_high)
+			tr
+				td Monthly
+				td 
+					= f.text_field(:rate_monthly_regular)
+				td 
+					= f.text_field(:rate_monthly_high)
+				
+	.form-item
+		= f.label(:other_expenses)
+		= f.text_area(:other_expenses)
+
+	.form-item
+		= f.label(:size)
+		= f.text_field(:size)
+
+		= f.radio_button(:size_units, "sq ft")
+		= f.label(:'size_units_sq ft', "sq ft")
+		= f.radio_button(:size_units, "sq m")
+		= f.label(:'size_units_sq m', "sq m")
+
+	.form-item
+		= f.label(:address)
+		= f.text_area(:address)
+
+	.form-item
+		= f.label(:description)
+		= f.text_area(:description)
+
+	.form-item
+		= f.label(:comments1, "Comments")
+		= f.text_area(:comments1)
+
+	.form-item
+		= f.label(:comments2, "General Comments")
+		= f.text_area(:comments2)
+
+	.form-item
+		= f.label(:video_link, "Youtube Link")
+		= f.text_field(:video_link)
+
+	.actions
+		= f.submit
+

@@ -1,0 +1,21 @@
+table.admin-table
+	thead
+		tr
+			th class="username" Username
+			th class="email" Email
+			th class="createdAt" Signed Up
+			th class="lastSignIn" Last Seen
+			th class="edit" 
+			th class="destroy" 
+	tbody
+		-@users.each do |user|
+			tr
+				td
+					= user.name
+				td
+					= user.email
+				td
+					= link_to 'Edit', edit_user_path(user)
+				td 
+					= link_to 'Destroy', user, :method => :delete, 
+							:data => { :confirm => "Are you sure you want to delete #{user.name}?" }

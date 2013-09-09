@@ -6,6 +6,18 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.string :remember_token
 
+      t.string  :first_name
+      t.string  :last_name
+      t.string  :country
+      t.string  :state
+      t.string  :zip
+      t.text    :address
+      t.string  :phone_day
+      t.string  :phone_eve
+      t.string  :phone_cell
+      t.attachment  :photo
+
+      t.boolean :admin, :default => false
       t.timestamps
     end
     add_index :users, :email, unique: true

@@ -3,6 +3,10 @@ Jstays::Application.routes.draw do
   root  'static_pages#home'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :properties do
+    resources :property_pics, shallow: true
+    resources :available_dates, shallow: true, only: [:create, :update, :destroy]
+  end
 
   match '/signup', to: 'users#new', via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

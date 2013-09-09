@@ -11,13 +11,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902213334) do
+ActiveRecord::Schema.define(version: 20130909192403) do
+
+  create_table "available_dates", force: true do |t|
+    t.integer "property_id"
+    t.date    "available_date"
+    t.integer "level"
+  end
+
+  add_index "available_dates", ["property_id"], name: "index_available_dates_on_property_id"
+
+  create_table "properties", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "property_type"
+    t.string   "sharing"
+    t.string   "duration"
+    t.string   "currency"
+    t.float    "other_expenses"
+    t.string   "location"
+    t.text     "address"
+    t.integer  "size"
+    t.string   "size_units"
+    t.string   "floor"
+    t.float    "bedrooms"
+    t.float    "bathrooms"
+    t.integer  "sleeps"
+    t.boolean  "kosher"
+    t.text     "amenities"
+    t.text     "comments1"
+    t.text     "comments2"
+    t.string   "video_link"
+    t.boolean  "active"
+    t.float    "rate_daily_regular"
+    t.float    "rate_daily_high"
+    t.float    "rate_weekly_regular"
+    t.float    "rate_weekly_high"
+    t.float    "rate_monthly_regular"
+    t.float    "rate_monthly_high"
+    t.boolean  "published"
+    t.date     "expires"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "property_pics", force: true do |t|
+    t.integer  "property_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "property_pics", ["property_id"], name: "index_property_pics_on_property_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "country"
+    t.string   "state"
+    t.string   "zip"
+    t.text     "address"
+    t.string   "phone_day"
+    t.string   "phone_eve"
+    t.string   "phone_cell"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.boolean  "admin",              default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
