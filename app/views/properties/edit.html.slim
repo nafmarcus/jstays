@@ -1,6 +1,9 @@
-<h1>Editing property</h1>
+h1 Editing property
+= render "/properties/sub_menu"
+hr
 
-<%= render 'form' %>
+= render 'form'
 
-<%= link_to 'Show', @property %> |
-<%= link_to 'Back', properties_path %>
+=' link_to 'Show', @property
+'|
+= link_to 'Back', properties_path

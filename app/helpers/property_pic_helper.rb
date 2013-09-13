@@ -1,0 +1,2 @@
+module PropertyPicHelper
+end

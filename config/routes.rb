@@ -4,7 +4,7 @@ Jstays::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :properties do
-    resources :property_pics, shallow: true
+    resources :property_pics, shallow: true, only: [:index, :destroy, :create]
     resources :available_dates, shallow: true, only: [:create, :update, :destroy]
   end
 

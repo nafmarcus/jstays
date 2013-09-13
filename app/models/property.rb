@@ -4,7 +4,7 @@ class Property < ActiveRecord::Base
 	has_many :available_dates
 
 	validates :title, :property_type, :sharing, :duration, :currency, :location,
-						:address, :bedrooms, :sleeps, :kosher, presence: true
+						:address, :bedrooms, :sleeps, presence: true
 
 	validate :rate_set
 

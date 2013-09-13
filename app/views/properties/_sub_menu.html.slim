@@ -1,0 +1,10 @@
+'Property Title:
+=@property.title
+nav
+	= link_to "View", property_path(@property)
+	' -
+	= link_to "Edit", edit_property_path(@property)
+	' -
+	= link_to "Pictures", property_property_pics_path(@property)
+	' -
+	= link_to "Availablity", property_available_dates_path(@property)

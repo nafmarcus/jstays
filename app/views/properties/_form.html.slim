@@ -9,8 +9,11 @@
 				li
 					= msg
 
+	.h2 General Information
+	= f.hidden_field(:user_id)
+
 	.form-item
-		= f.label(:title, "Property Title")
+		= f.label(:title, "Property Title", class: "required")
 		= f.text_field(:title)
 
 	.form-item
@@ -18,23 +21,23 @@
 		= f.text_area(:description)
 
 	.form-item
-		= f.label(:property_type)
+		= f.label(:property_type, class: "required")
 		= f.select(:property_type, PropertyTypes.collect {|k,v| [v,k]})
 
 	.form-item2
-		.itcs-label Sharing
+		.jstays-label.required Sharing
 		- Sharing.each do |k, v|
 			= f.radio_button(:sharing, k)
 			= f.label("sharing_#{k}".to_sym, v)
 
 	.form-item2
-		.jstays-label Duration
+		.jstays-label.required Duration
 		- Duration.each do |k, v|
 			= f.radio_button(:duration, k)
 			= f.label("duration_#{k}".to_sym, v)
 
 	.form-item
-		= f.label(:currency)
+		= f.label(:currency, class: "required")
 		= f.select(:currency, Currencies.collect {|k,v| [v,k]})
 
 	.form-item1
@@ -68,6 +71,14 @@
 		= f.text_area(:other_expenses)
 
 	.form-item
+		= f.label(:location, class: "required")
+		= f.text_area(:location)
+
+	.form-item
+		= f.label(:address, class: "required")
+		= f.text_area(:address)
+
+	.form-item
 		= f.label(:size)
 		= f.text_field(:size)
 
@@ -77,12 +88,24 @@
 		= f.label(:'size_units_sq m', "sq m")
 
 	.form-item
-		= f.label(:address)
-		= f.text_area(:address)
+		= f.label(:floor)
+		= f.select(:floor, Floors.collect {|k,v| [v,k]})
 
 	.form-item
-		= f.label(:description)
-		= f.text_area(:description)
+		= f.label(:bedrooms, "No. of Bedrooms", class: "required")
+		= f.select(:bedrooms, Bedrooms)
+
+	.form-item
+		= f.label(:sleeps, class: "required")
+		= f.select(:sleeps, Sleeps)
+
+	.form-item
+		= f.label(:bathrooms, "No. of Bathrooms")
+		= f.select(:bathrooms, Bathrooms)
+
+	.form-item2
+		= f.label(:kosher, "Kosher?")
+		= f.check_box(:kosher)
 
 	.form-item
 		= f.label(:comments1, "Comments")
@@ -95,6 +118,17 @@
 	.form-item
 		= f.label(:video_link, "Youtube Link")
 		= f.text_field(:video_link)
+
+	.form-item2
+		= f.label(:active, "Active")
+		= f.check_box(:active)
+
+	#amenities
+		h2 Amenities
+		-Amenities.each_with_index do |amenity, index|
+			span.item
+				=' check_box_tag "amenities[#{index}]", amenity
+				= label_tag("amenities_#{index}", amenity)
 
 	.actions
 		= f.submit

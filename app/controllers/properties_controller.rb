@@ -14,7 +14,7 @@ class PropertiesController < ApplicationController
 
   def create
     @property = Property.new(property_params)
-
+    @property.amenities = params[:amenities].collect{|k, v| v}.join(",") if params[:amenities]
     if @property.save
       redirect_to @property, notice: 'Property was successfully created.'
     else
@@ -52,7 +52,7 @@ class PropertiesController < ApplicationController
                     :video_link, :active,
                     :rate_daily_regular, :rate_daily_high, :rate_weekly_regular,
                     :rate_weekly_high, :rate_monthly_regular, :rate_monthly_high]
-      allowed_params.concat(:user_id, :published) if current_user.admin?
+      allowed_params.concat([:user_id, :published]) if current_user.admin?
       params[:property].permit(allowed_params)
     end
 end

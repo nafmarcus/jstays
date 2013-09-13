@@ -3,6 +3,7 @@ Sharing = { exclusive: "Exclusive", shared: "Shared", roommate: "Roommate"}
 Duration = { short_term: "Short-term", long_term: "Long-term"}
 Currencies = { aud:"AUD", cad: "CAD", eur: "EUR", gbp: "GBP", ils: "ILS", usd: "USD"}
 Floors = { 0 => 'Basement', 1 => "Ground / 1 "}.merge (Hash[(2..20).collect {|i| [i, i.to_s]}])
+Bedrooms = (1..7).to_a
 Sleeps = (1..15).to_a
 Bathrooms = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]
 Amenities = ["Air Conditioning", "Balcony", "Breakfast", "Buzzer/Wireless Intercom", "Cable TV",
