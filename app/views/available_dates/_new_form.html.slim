@@ -1,0 +1,4 @@
+= form_for([@property, @available_date]) do |f|
+	= f.hidden_field :date, value: date.to_s
+	.actions
+		= f.submit "Add"

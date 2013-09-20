@@ -1,3 +1,5 @@
+Countries = ['USA', 'Israel', 'Canada', 'UK', 'Australia', 'France', 
+							'Switzerland', 'Brazil', 'Argentina', 'South Africa']
 PropertyTypes = {aprtment: "Apartment", basement: "Basement Apartment", duplex: "Duplex", house: "House"}
 Sharing = { exclusive: "Exclusive", shared: "Shared", roommate: "Roommate"}
 Duration = { short_term: "Short-term", long_term: "Long-term"}
@@ -12,4 +14,3 @@ Amenities = ["Air Conditioning", "Balcony", "Breakfast", "Buzzer/Wireless Interc
 							"Microwave", "Parking", "Pets Allowed", "Pool", 
 							"Shabbat Elevator", "Smoking Allowed", "Suitable for Events",
 							"TV", "Washer/Dryer", "Wireless Internet"]
-

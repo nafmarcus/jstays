@@ -3,4 +3,40 @@ p
 		= notice
 
 = render "/properties/sub_menu"
-hr
+.left-side
+
+	#property-main-display.tab-section
+		nav
+			ul.nav
+				li.active 
+					= link_to "Photos", "#property-photos", :"data-toggle" => "tab"
+				li 
+					= link_to "Calendar", "#property-calendar", :"data-toggle" => "tab"
+				li 
+					= link_to "Map", "#property-on-map", :"data-toggle" => "tab"
+				li 
+					= link_to "Reviews", "#property-reviews", :"data-toggle" => "tab"
+
+		section.tab-content
+			#property-photos.tab-pane.active
+				= render "/property_pics/embedded_pics", property: @property
+			#property-calendar.tab-pane
+				= render "/available_dates/embedded_calendar"
+			#property-on-map.tab-pane
+				h3 Map of location is here
+			#property-reviews.tab-pane
+				h3 Be the first to review
+
+	#details
+		h3 Details
+
+.right-side
+	#stuff1
+		| Price
+		=link_to "Email Owner", @property.user
+	#details
+		#at-a-glance
+		#amenities
+
+
+

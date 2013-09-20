@@ -1,17 +1,51 @@
 -provide(:title, "Edit user")
+.container-fluid
+	h1 Update Profile
+	= form_for(@user) do |f|
+		= render 'shared/error_messages'
+		.row-fluid
+			.span5
+				.item
+					= f.label :first_name, class: "required"
+					= f.text_field :first_name 
+				.item.required
+					= f.label :last_name
+					= f.text_field :last_name 
+				.item.required
+					= f.label :email
+					= f.text_field :email
+				.item
+					= f.label :addtl_emails
+					= f.text_field :addtl_emails
+				.item
+					= f.label(:currency, class: "required")
+					= f.select(:currency, Currencies.collect {|k,v| [v,k]})
 
-h1 
-	|Update your profile
+			.span1
+			.span5
+				.item
+					= f.label :country
+					= f.text_field :country 
+				.item
+					= f.label :zip
+					= f.text_field :zip
+				.item
+					= f.label :state
+					= f.text_field :state
+				.item
+					= f.label :city
+					= f.text_field :city
+				.item
+					= f.label :address
+					= f.text_area :address
+				.item
+					= f.label :phone_day, "Phone (Day)"
+					= f.text_field :phone_day
+				.item
+					= f.label :phone_eve, "Phone (Eve)"
+					= f.text_field :phone_eve
+				.item
+					= f.label :phone_cell, "Cellphone"
+					= f.text_field :phone_cell
 
-.row
-	.span6.offset3
-		= form_for(@user) do |f|
-			= render 'shared/error_messages'
-			.item
-				= f.label :name
-				= f.text_field :name 
-			.item
-				= f.label :email
-				= f.text_field :email
-
-				= f.submit "Save changes", class: "btn btn-large btn-primary"
+		= f.submit "Submit", class: "btn btn-large btn-primary"

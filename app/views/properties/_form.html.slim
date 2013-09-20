@@ -1,4 +1,7 @@
-= form_for(@property) do |f|
+= form_for(@property, html: {class: "form-horizontal"}) do |f|
+	legend
+		| General Information
+
 	-if @property.errors.any?
 		#error_explanation
 			h2
@@ -9,127 +12,120 @@
 				li
 					= msg
 
-	.h2 General Information
 	= f.hidden_field(:user_id)
+	.container-fluid
+		.row-fluid
+			.span6.centering
+				.control-group
+					= f.label(:title, "Property Title", class: "required control-label")
+					= f.text_field(:title, class: "control")
 
-	.form-item
-		= f.label(:title, "Property Title", class: "required")
-		= f.text_field(:title)
+				.control-group
+					= f.label(:description, class: "required control-label")
+					= f.text_area(:description, class: "control")
 
-	.form-item
-		= f.label(:description)
-		= f.text_area(:description)
+				.control-group
+					= f.label(:property_type, class: "required control-label")
+					= f.select(:property_type, PropertyTypes.collect {|k,v| [v,k]}, class: "control")
 
-	.form-item
-		= f.label(:property_type, class: "required")
-		= f.select(:property_type, PropertyTypes.collect {|k,v| [v,k]})
+				.control-group.inline
+					.jstays-label.required Sharing
+					- Sharing.each do |k, v|
+						= f.radio_button(:sharing, k)
+						= f.label("sharing_#{k}".to_sym, v, class: "radio inline")
 
-	.form-item2
-		.jstays-label.required Sharing
-		- Sharing.each do |k, v|
-			= f.radio_button(:sharing, k)
-			= f.label("sharing_#{k}".to_sym, v)
+				.control-group
+					.jstays-label.required Duration
+					- Duration.each do |k, v|
+						= f.radio_button(:duration, k)
+						= f.label("duration_#{k}".to_sym, v, class: "radio inline")
 
-	.form-item2
-		.jstays-label.required Duration
-		- Duration.each do |k, v|
-			= f.radio_button(:duration, k)
-			= f.label("duration_#{k}".to_sym, v)
+				/ .form-item
+				/ 	= f.label(:currency, class: "required")
+				/ 	= f.select(:currency, Currencies.collect {|k,v| [v,k]})
 
-	.form-item
-		= f.label(:currency, class: "required")
-		= f.select(:currency, Currencies.collect {|k,v| [v,k]})
+				.form-item1
+					.jstays-label.required Rates
+					table
+						tr
+							th
+							th Regular
+							th High Season
+						tr
+							td Daily
+							td 
+								= f.text_field(:rate_daily_regular, class: "span4")
+							td 
+								= f.text_field(:rate_daily_high, class: "span4")
+						tr
+							td Weekly
+							td 
+								= f.text_field(:rate_weekly_regular, class: "span4")
+							td 
+								= f.text_field(:rate_weekly_high, class: "span4")
+						tr
+							td Monthly
+							td 
+								= f.text_field(:rate_monthly_regular, class: "span4")
+							td 
+								= f.text_field(:rate_monthly_high, class: "span4")
 
-	.form-item1
-		.jstays-label.required Rates
-		table
-			tr
-				th
-				th Regular
-				th High Season
-			tr
-				td Daily
-				td 
-					= f.text_field(:rate_daily_regular)
-				td 
-					= f.text_field(:rate_daily_high)
-			tr
-				td Weekly
-				td 
-					= f.text_field(:rate_weekly_regular)
-				td 
-					= f.text_field(:rate_weekly_high)
-			tr
-				td Monthly
-				td 
-					= f.text_field(:rate_monthly_regular)
-				td 
-					= f.text_field(:rate_monthly_high)
-				
-	.form-item
-		= f.label(:other_expenses)
-		= f.text_area(:other_expenses)
+				.control-group
+					= f.label(:other_expenses, class: "control-label")
+					= f.text_area(:other_expenses, class: "control")
 
-	.form-item
-		= f.label(:location, class: "required")
-		= f.text_area(:location)
+				.control-group
+					= f.label(:location, class: "required control-label")
+					= f.text_field(:location, class: "control")
 
-	.form-item
-		= f.label(:address, class: "required")
-		= f.text_area(:address)
+				.control-group
+					= f.label(:address, class: "required control-label")
+					= f.text_area(:address, class: "control")
 
-	.form-item
-		= f.label(:size)
-		= f.text_field(:size)
+			.span6
+				.control-group
+					= f.label(:floor, class: "inline control-label")
+					= f.select(:floor, Floors.collect {|k,v| [v,k]})
 
-		= f.radio_button(:size_units, "sq ft")
-		= f.label(:'size_units_sq ft', "sq ft")
-		= f.radio_button(:size_units, "sq m")
-		= f.label(:'size_units_sq m', "sq m")
+				.control-group
+					= f.label(:bedrooms, "No. of Bedrooms", class: "required inline control-label")
+					= f.select(:bedrooms, Bedrooms, class: "control")
 
-	.form-item
-		= f.label(:floor)
-		= f.select(:floor, Floors.collect {|k,v| [v,k]})
+				.control-group
+					= f.label(:sleeps, class: "required control-label")
+					= f.select(:sleeps, Sleeps, class: "control")
 
-	.form-item
-		= f.label(:bedrooms, "No. of Bedrooms", class: "required")
-		= f.select(:bedrooms, Bedrooms)
+				.control-group
+					= f.label(:bathrooms, "No. of Bathrooms", class: "inline control-label")
+					= f.select(:bathrooms, Bathrooms, class: "control")
 
-	.form-item
-		= f.label(:sleeps, class: "required")
-		= f.select(:sleeps, Sleeps)
+				.form-item2
+					= f.label(:kosher, "Kosher?", class: "inline checkbox")
+					= f.check_box(:kosher)
 
-	.form-item
-		= f.label(:bathrooms, "No. of Bathrooms")
-		= f.select(:bathrooms, Bathrooms)
+				.control-group
+					= f.label(:comments1, "Comments", class: "inline control-label")
+					= f.text_area(:comments1, class: "control")
 
-	.form-item2
-		= f.label(:kosher, "Kosher?")
-		= f.check_box(:kosher)
+				.control-group
+					= f.label(:comments2, "General Comments", class: "inline control-label")
+					= f.text_area(:comments2, class: "control")
 
-	.form-item
-		= f.label(:comments1, "Comments")
-		= f.text_area(:comments1)
+				.control-group
+					= f.label(:video_link, "Youtube Link", class: "inline control-label")
+					= f.text_field(:video_link, class: "control")
 
-	.form-item
-		= f.label(:comments2, "General Comments")
-		= f.text_area(:comments2)
+				.control-group
+					= f.label(:active, "Active", class: "inline checkbox")
+					= f.check_box(:active)
 
-	.form-item
-		= f.label(:video_link, "Youtube Link")
-		= f.text_field(:video_link)
+		#amenities
+			h2 Amenities
+			-Amenities.each_with_index do |amenity, index|
+				span.item
+					=' check_box_tag "amenities[#{index}]", amenity
+					= label_tag("amenities_#{index}", amenity, class: "checkbox inline")
 
-	.form-item2
-		= f.label(:active, "Active")
-		= f.check_box(:active)
-
-	#amenities
-		h2 Amenities
-		-Amenities.each_with_index do |amenity, index|
-			span.item
-				=' check_box_tag "amenities[#{index}]", amenity
-				= label_tag("amenities_#{index}", amenity)
-
-	.actions
-		= f.submit
+		.actions
+			= f.submit "Submit", class: "btn btn-primary btn-large"
 

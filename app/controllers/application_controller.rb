@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  before_action :set_up
+
   def signed_in_user
   	unless signed_in?
   		store_location
@@ -17,5 +19,9 @@ class ApplicationController < ActionController::Base
   end
   def admin_user
     redirect_to(root_url) unless current_user.admin?
+  end
+
+  def set_up
+    session[:currency] ||= 'USD'
   end
 end

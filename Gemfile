@@ -10,6 +10,8 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'therubyracer'
 gem 'less-rails'
+gem "twitter-bootstrap-rails"
+
 gem 'slim'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'rb-readline', '~> 0.5.0', :require => false
@@ -46,6 +48,7 @@ end
 group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
+	gem 'pry'
 end
 	
 group :test do

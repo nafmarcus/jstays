@@ -5,9 +5,11 @@ Jstays::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :properties do
     resources :property_pics, shallow: true, only: [:index, :destroy, :create]
-    resources :available_dates, shallow: true, only: [:create, :update, :destroy]
+    resources :available_dates, shallow: true, only: [:index, :create, :update, :destroy]
   end
 
+  get '/about', to: 'static_pages#about'
+  get '/faq',   to: 'static_pages#faq'
   match '/signup', to: 'users#new', via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

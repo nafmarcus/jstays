@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20130909192403) do
 
   create_table "available_dates", force: true do |t|
     t.integer "property_id"
-    t.date    "available_date"
-    t.integer "level"
+    t.date    "a_date"
+    t.string  "level"
   end
 
   add_index "available_dates", ["property_id"], name: "index_available_dates_on_property_id"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20130909192403) do
     t.float    "other_expenses"
     t.string   "location"
     t.text     "address"
-    t.integer  "size"
-    t.string   "size_units"
+    t.float    "lat"
+    t.float    "long"
     t.string   "floor"
     t.float    "bedrooms"
     t.float    "bathrooms"
@@ -69,19 +69,21 @@ ActiveRecord::Schema.define(version: 20130909192403) do
   add_index "property_pics", ["property_id"], name: "index_property_pics_on_property_id"
 
   create_table "users", force: true do |t|
-    t.string   "name"
     t.string   "email"
+    t.text     "addtl_emails"
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "country"
     t.string   "state"
+    t.string   "city"
     t.string   "zip"
     t.text     "address"
     t.string   "phone_day"
     t.string   "phone_eve"
     t.string   "phone_cell"
+    t.string   "currency"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -92,7 +94,6 @@ ActiveRecord::Schema.define(version: 20130909192403) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["name"], name: "index_users_on_name", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

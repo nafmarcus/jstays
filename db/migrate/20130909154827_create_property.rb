@@ -8,12 +8,12 @@ class CreateProperty < ActiveRecord::Migration
     	t.string	:property_type
     	t.string	:sharing
     	t.string	:duration
-    	t.string	:currency
+    	t.string	:currency #may not be used
     	t.float		:other_expenses
     	t.string	:location
     	t.text		:address
-    	t.integer	:size
-    	t.string	:size_units
+        t.float     :lat
+        t.float     :long
     	t.string	:floor
     	t.float		:bedrooms
     	t.float		:bathrooms

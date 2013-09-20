@@ -1,0 +1,18 @@
+h1 Listing Available Dates
+= render "/properties/sub_menu"
+hr
+h2#month
+  = link_to "<", date: @date.prev_month
+  = @date.strftime("%B %Y")
+  = link_to ">", date: @date.next_month
+
+= calendar @date do |date|
+	= date.day
+	br
+	- available_date = @property.available_date(date)
+	-if available_date.nil? 
+		= render("/available_dates/new_form", date: date)
+	-elsif available_date.level == "low"
+		= render("/available_dates/edit_form", available_date: available_date)
+	-else
+		= link_to "High", available_date ,method: :delete 

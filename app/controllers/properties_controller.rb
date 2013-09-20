@@ -1,5 +1,7 @@
 class PropertiesController < ApplicationController
+
   before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, :except => [:show]
 
   def index
     @properties = Property.all
@@ -15,6 +17,7 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(property_params)
     @property.amenities = params[:amenities].collect{|k, v| v}.join(",") if params[:amenities]
+    @property.user_id = params[:property][:user_id] || current_user.id
     if @property.save
       redirect_to @property, notice: 'Property was successfully created.'
     else
@@ -47,7 +50,7 @@ class PropertiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
       allowed_params = [:title, :description, :property_type, :sharing, :duration,
-                    :currency, :other_expenses, :location, :address, :size, :size_units, 
+                    :currency, :other_expenses, :location, :address, 
                     :floor, :bedrooms, :bathrooms, :sleeps, :kosher, :amenities, :comments1, :comments2,
                     :video_link, :active,
                     :rate_daily_regular, :rate_daily_high, :rate_weekly_regular,

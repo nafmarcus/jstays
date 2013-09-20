@@ -1,0 +1,17 @@
+.container
+	.fluid-row
+		.span3
+			= image_tag("logo.png")
+		.span6
+			= image_tag("logo_tag.png")
+		.span3
+	.fluid-row
+		.span12
+			nav
+				ul.nav.nav-tabs
+					li
+						= link_to "Home", root_url
+					li
+						= link_to "About us", "/about"
+					li
+						= link_to "FAQ", "/faq"
