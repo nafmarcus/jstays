@@ -1,8 +1,12 @@
-h1 Editing property
-= render "/properties/sub_menu"
+.h1_wrapper
+	h1 Update property
+.main_area
+	.mini_menu_div
+		= render "/properties/sub_menu"
+	.intro_area
+		|Intro to edit page goes here
+	.smallGray
+		| * indicates required field.
+	
+	= render 'form'
 
-= render 'form'
-
-=' link_to 'Show', @property
-'|
-= link_to 'Back', properties_path

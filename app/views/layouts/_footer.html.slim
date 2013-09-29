@@ -1,4 +1,32 @@
-.footer
-	br
-	hr
-	b THIS IS THE FOOTER
+div style="height:63px; background-image:url('general/bg_blue.jpg'); "
+	div style="height:63px; width:1086px; background: blue; color:white"
+		|TO BE REDONE
+
+table#footer_table.full_table
+	tbody
+		tr
+			td
+				2013 Jstays. All Rights Reservered
+			td
+				= link_to("Feedback", "feedback")
+			th |
+			td 
+				= link_to("Terms & Conditions", "terms_conditions")
+			th |
+			td 
+				= link_to("Privacy Policy", "terms_conditions")
+			th |
+			td 
+				= link_to("Testimonials", "terms_conditions")
+			th |
+			td 
+				= link_to("contact", "contact")
+			td width="260px"
+			td.icon
+				=link_to image_tag("button_fb.gif"), "http://www.facebook.com/JstaysRRR", target: "_blank"
+			td.icon
+				=link_to image_tag("button_in.gif"), "", target: "_blank"
+			td.icon
+				=link_to image_tag("button_twitter.gif"), "", target: "_blank"
+			td.icon
+				=link_to image_tag("button_youtube.gif"), "", target: "_blank"

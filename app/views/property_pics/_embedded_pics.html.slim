@@ -1,19 +1,10 @@
-h3 This is the photo carousel
+#property-pics
+	-@property.property_pics.each_with_index do |pic, idx|
+		.item class="#{'active' if idx ==0}"
+			= image_tag(pic.image.url(:w480))
 
-.container-fluid
-	.row-fluid
-		.span12
-			#property-pics.carousel.slide
-				.carousel-inner
-					-@property.property_pics.each_with_index do |pic, idx|
-						.item class="#{'active' if idx ==0}"
-							= image_tag(pic.image.url(:w400))
-
-				ol.carousel-indicators
-					-@property.property_pics.each_with_index do |pic, idx|
-						li class="#{'active' if idx ==0}" data-target="#property-pics" data-slide-to="#{idx}"
-							|pic #{idx+1}
-
-				/ controls
-				/ = link_to "<", "#property-pics", class: "left carousel-control", :"data-slide" => "prev"
-				/ = link_to ">", "#property-pics", class: "right carousel-control", :"data-slide" => "next"
+#thumbnails
+ul
+	-@property.property_pics.each_with_index do |pic, idx|
+		.li class="#{'active' if idx ==0}"
+			= image_tag(pic.image.url(:w40))

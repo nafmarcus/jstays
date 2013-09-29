@@ -1,6 +1,4 @@
-= form_for(@property, html: {class: "form-horizontal"}) do |f|
-	legend
-		| General Information
+= form_for(@property) do |f|
 
 	-if @property.errors.any?
 		#error_explanation
@@ -13,119 +11,180 @@
 					= msg
 
 	= f.hidden_field(:user_id)
-	.container-fluid
-		.row-fluid
-			.span6.centering
-				.control-group
-					= f.label(:title, "Property Title", class: "required control-label")
-					= f.text_field(:title, class: "control")
-
-				.control-group
-					= f.label(:description, class: "required control-label")
-					= f.text_area(:description, class: "control")
-
-				.control-group
-					= f.label(:property_type, class: "required control-label")
-					= f.select(:property_type, PropertyTypes.collect {|k,v| [v,k]}, class: "control")
-
-				.control-group.inline
-					.jstays-label.required Sharing
-					- Sharing.each do |k, v|
-						= f.radio_button(:sharing, k)
-						= f.label("sharing_#{k}".to_sym, v, class: "radio inline")
-
-				.control-group
-					.jstays-label.required Duration
-					- Duration.each do |k, v|
-						= f.radio_button(:duration, k)
-						= f.label("duration_#{k}".to_sym, v, class: "radio inline")
-
-				/ .form-item
-				/ 	= f.label(:currency, class: "required")
-				/ 	= f.select(:currency, Currencies.collect {|k,v| [v,k]})
-
-				.form-item1
-					.jstays-label.required Rates
+	table.regularForm align="center"
+		tbody
+			tr
+				td valign="top"
 					table
-						tr
-							th
-							th Regular
-							th High Season
-						tr
-							td Daily
-							td 
-								= f.text_field(:rate_daily_regular, class: "span4")
-							td 
-								= f.text_field(:rate_daily_high, class: "span4")
-						tr
-							td Weekly
-							td 
-								= f.text_field(:rate_weekly_regular, class: "span4")
-							td 
-								= f.text_field(:rate_weekly_high, class: "span4")
-						tr
-							td Monthly
-							td 
-								= f.text_field(:rate_monthly_regular, class: "span4")
-							td 
-								= f.text_field(:rate_monthly_high, class: "span4")
+						tbody
+							tr
+								th
+									= f.label :title
+								td
+									= f.text_field :title
+							tr
+								td.formSpace colspan="2"
+							tr
+								th
+									= f.label :description
+								td
+									= f.text_area :description
+							tr
+								td.formSpace colspan="2"
+							tr
+								th
+									= f.label :property_type
+								td
+									= f.select(:property_type, PropertyTypes.collect {|k,v| [v,k]})
+							tr
+								td.formSpace colspan="2"
+							tr
+								th
+									|Sharing
+								td
+									- Sharing.each do |k, v|
+										= f.radio_button(:sharing, k)
+										= f.label("sharing_#{k}".to_sym, v)
+							tr
+								td.formSpace colspan="2"
+							tr
+								th
+									|Duration
+								td
+									- Duration.each do |k, v|
+										= f.radio_button(:duration, k)
+										= f.label("duration_#{k}".to_sym, v)
+							tr
+								td.formSpace colspan="2"
+							tr
+								th
+									|Rates
+								td
+									table
+										tbody
+											tr
+												th
+												th Regular
+												th High Season
+											tr
+												td Daily
+												td 
+													= f.text_field(:rate_daily_regular, maxlength: "7")
+												td 
+													= f.text_field(:rate_daily_high, maxlength: "7")
+											tr
+												td Weekly
+												td 
+													= f.text_field(:rate_weekly_regular, maxlength: "7")
+												td 
+													= f.text_field(:rate_weekly_high, maxlength: "7")
+											tr
+												td Monthly
+												td 
+													= f.text_field(:rate_monthly_regular, maxlength: "7")
+												td 
+													= f.text_field(:rate_monthly_high, maxlength: "7")
+							tr
+								td.formSpace colspan="2"
+							tr
+								th
+									= f.label :other_expenses
+								td
+									= f.text_area :other_expenses
+							tr
+								td.formSpace colspan="2"
+							tr
+								th
+									= f.label :location
+								td
+									= f.text_field :location
+							tr
+								td.formSpace colspan="2"
+							tr
+								th
+									= f.label :address
+								td
+									= f.text_area :address
+				td width="50px"
+				td width="50px" style="border-left:1px solid #A6CEFA;"
+					td valign="top"
+						table
+							tbody
+								tr
+									th
+										= f.label :floor
+									td
+										= f.select(:floor, Floors.collect {|k,v| [v,k]})
+								tr
+									td.formSpace colspan="2"
+								tr
+									th
+										= f.label :bedrooms, "No. of Bedrooms"
+									td
+										= f.select(:bedrooms, Bedrooms)
+								tr
+									td.formSpace colspan="2"
+								tr
+									th
+										= f.label :sleeps
+									td
+										= f.select(:sleeps, Sleeps)
+								tr
+									td.formSpace colspan="2"
+								tr
+									th
+										= f.label :bathrooms, "No. of Bathrooms"
+									td
+										= f.select(:bathrooms, Bathrooms)
+								tr
+									td.formSpace colspan="2"
+								tr
+									th
+										= f.label(:kosher, "Kosher?")
+									td
+										= f.check_box(:kosher)
+								tr
+									td.formSpace colspan="2"
+								tr
+									th
+										= f.label(:kosher, "Kosher?")
+									td
+										= f.check_box(:kosher)
+								tr
+									td.formSpace colspan="2"
+								tr
+									th
+										= f.label(:comments1, "Comments")
+									td
+										= f.text_area(:comments1)
+								tr
+									td.formSpace colspan="2"
+								tr
+									th
+										= f.label(:comments2, "General Comments")
+									td
+										= f.text_area(:comments2)
+								tr
+									td.formSpace colspan="2"
+								tr
+									th
+										= f.label(:video_link, "Youtube Link")
+									td
+										= f.text_field(:video_link)
+								tr
+									td.formSpace colspan="2"
+								tr
+									th
+										= f.label(:active, "Active")
+									td
+										= f.check_box(:active)
+					
+	#amenities
+		h2 Amenities
+		-Amenities.each_with_index do |amenity, index|
+			span.item
+				=' check_box_tag "amenities[#{index}]", amenity
+				= label_tag("amenities_#{index}", amenity)
 
-				.control-group
-					= f.label(:other_expenses, class: "control-label")
-					= f.text_area(:other_expenses, class: "control")
-
-				.control-group
-					= f.label(:location, class: "required control-label")
-					= f.text_field(:location, class: "control")
-
-				.control-group
-					= f.label(:address, class: "required control-label")
-					= f.text_area(:address, class: "control")
-
-			.span6
-				.control-group
-					= f.label(:floor, class: "inline control-label")
-					= f.select(:floor, Floors.collect {|k,v| [v,k]})
-
-				.control-group
-					= f.label(:bedrooms, "No. of Bedrooms", class: "required inline control-label")
-					= f.select(:bedrooms, Bedrooms, class: "control")
-
-				.control-group
-					= f.label(:sleeps, class: "required control-label")
-					= f.select(:sleeps, Sleeps, class: "control")
-
-				.control-group
-					= f.label(:bathrooms, "No. of Bathrooms", class: "inline control-label")
-					= f.select(:bathrooms, Bathrooms, class: "control")
-
-				.form-item2
-					= f.label(:kosher, "Kosher?", class: "inline checkbox")
-					= f.check_box(:kosher)
-
-				.control-group
-					= f.label(:comments1, "Comments", class: "inline control-label")
-					= f.text_area(:comments1, class: "control")
-
-				.control-group
-					= f.label(:comments2, "General Comments", class: "inline control-label")
-					= f.text_area(:comments2, class: "control")
-
-				.control-group
-					= f.label(:video_link, "Youtube Link", class: "inline control-label")
-					= f.text_field(:video_link, class: "control")
-
-				.control-group
-					= f.label(:active, "Active", class: "inline checkbox")
-					= f.check_box(:active)
-
-		#amenities
-			h2 Amenities
-			-Amenities.each_with_index do |amenity, index|
-				span.item
-					=' check_box_tag "amenities[#{index}]", amenity
-					= label_tag("amenities_#{index}", amenity, class: "checkbox inline")
-
-		.actions
-			= f.submit "Submit", class: "btn btn-primary btn-large"
-
+	.actions
+		= f.submit "Submit", class: "btn btn-primary btn-large"

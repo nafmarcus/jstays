@@ -1,42 +1,112 @@
-p 
-	#notice
-		= notice
+.h1_wrapper
+	h1 = @property.title + "(" + @property.id.to_s + ")"
+	h2 
+		| #{@property.property_type}  in #{@property.location} for #{@property.duration} 
 
-= render "/properties/sub_menu"
-.left-side
+.main_area
+	= render "/properties/sub_menu", property: @property
 
-	#property-main-display.tab-section
-		nav
-			ul.nav
-				li.active 
-					= link_to "Photos", "#property-photos", :"data-toggle" => "tab"
-				li 
-					= link_to "Calendar", "#property-calendar", :"data-toggle" => "tab"
-				li 
-					= link_to "Map", "#property-on-map", :"data-toggle" => "tab"
-				li 
-					= link_to "Reviews", "#property-reviews", :"data-toggle" => "tab"
+	table#rating_table
+	= javascript_include_tag "original/site-wide1"
+	table
+		tbody
+			tr
+				/ Left side
+				td valign="top"
 
-		section.tab-content
-			#property-photos.tab-pane.active
-				= render "/property_pics/embedded_pics", property: @property
-			#property-calendar.tab-pane
-				= render "/available_dates/embedded_calendar"
-			#property-on-map.tab-pane
-				h3 Map of location is here
-			#property-reviews.tab-pane
-				h3 Be the first to review
+					#main_info
+						table.tabs align="center"
+							tbody
+								tr
+									th
+									td#photos_tab class="selected"
+										= link_to "Photos", "javascript:void(0)", onclick: "switch_tab('photos', 'main_tabs')"
+									td#calendar_tab class="unselected"
+										= link_to "Calendar", "javascript:void(0)", onclick: "switch_tab('calendar', 'main_tabs')"
+									td#map_tab class="unselected"
+										= link_to "Map", "javascript:void(0)", onclick: "switch_tab('map', 'main_tabs')"
+									td#reviews_tab class="unselected"
+										= link_to "Reviews", "javascript:void(0)", onclick: "switch_tab('reviews', 'main_tabs')"
 
-	#details
-		h3 Details
+						#current_content
+							#photos
+								center
+								= render "/property_pics/embedded_pics", property: @property
+							#calendar  style="position:absolute; top:0; left:-9999px;"
+								= render "/available_dates/embedded_calendar"
+							#map style="position:absolute; top:0; left:-9999px;"
+								h3 Map of location is here
+							#reviews style="position:absolute; top:0; left:-9999px;"
+								h3 Be the first to review
+					#details_header Details
+					#details
+						div
+							h3 Description
+							= @property.description
+							h3 General Comments
+							= @property.comments1
+							h3 Kashrut
+							|Where is this coming from?
+				td style="width:40px;"
+				/ Right side
+				td valign="top"
+					#price_and_contact_owner
+						span PRICE
+						span 9 - USD Daily
+						= link_to image_tag("emailowner.png"), @property.user.email, class: "cboxElement"
 
-.right-side
-	#stuff1
-		| Price
-		=link_to "Email Owner", @property.user
-	#details
-		#at-a-glance
-		#amenities
+					#right_info
+						table.tabs align="center"
+							tbody
+								tr
+									th
+									td#at_a_glance_tab.selected
+										= link_to "At a Glance", "javascript:void(0)", onclick: "switch_tab('at_a_glance', 'right_info')"
+									th
+									td#amenities_tab.unselected
+										= link_to "Amenities", "javascript:void(0)", onclick: "switch_tab('amenities', 'right_info')"
+									th
+						#right_info_inner
+							table#at_a_glance align="center" style="position: static; top: 0px; left: -9999px;"
+								tbody
+									tr
+										th.light valign="top" Type
+										td.light valign="top"
+									tr
+										th.dark valign="top" Duration
+										td.dark valign="top"
+									tr
+										th.light valign="top" Location
+										td.light valign="top"
+									tr
+										th.dark valign="top" # Bedrooms
+										td.dark valign="top"
+									tr
+										th.light valign="top" # Bathrooms
+										td.light valign="top"
+									tr
+										th.dark valign="top" # Bed
+										td.dark valign="top"
+									tr
+										th.light valign="top" Floor
+										td.light valign="top"
+									tr
+										th.dark valign="top" Other Fees
+										td.dark valign="top"
 
+							table#amenities align="center" style="position: absolute; top: 0px; left: -9999px;"
+								tbody
+									tr
+										td valign="top"
+											|AMMENITIES TO BE FILLED IN
+					table#map_tabs
+						tbody
+							tr
+								td.selected
+									= link_to "Map", "#"
+								td.unselected
+									= link_to "Street View", "#"
 
-
+					#map_outer
+						#map_small
+							|MAP TO BE DEFINED

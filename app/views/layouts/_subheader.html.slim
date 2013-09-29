@@ -1,17 +1,26 @@
-.container
-	.fluid-row
-		.span3
-			= image_tag("logo.png")
-		.span6
-			= image_tag("logo_tag.png")
-		.span3
-	.fluid-row
-		.span12
-			nav
-				ul.nav.nav-tabs
-					li
-						= link_to "Home", root_url
-					li
-						= link_to "About us", "/about"
-					li
-						= link_to "FAQ", "/faq"
+table#logo_table.full_table
+	tbody
+		tr
+			td#logo_top
+		tr
+			td
+				center
+					= image_tag("logo_tag.png")
+
+		tr
+			td
+				table#nav.full_table
+					tbody
+						tr
+							td width="50px"
+							td#nav_home
+								span title="Home"
+							td#nav_about
+								= link_to('', '/about')
+							td#nav_faq
+								= link_to("", '/faq')
+							td width="430px"
+							td#nav_post
+								= link_to("", '#')
+							td#nav_blog
+								= link_to("", '#')

@@ -1,23 +1,35 @@
-h1
-	| Listing properties
-
-table
-	thead
-		tr
-			th Title
-			th
-			th
-
-	tbody
-		-@properties.each do |property|
+.h1_wrapper
+	h1 Listing properties
+.main_area
+	.intro_area
+		|This is the intro text for the property listing page
+	table.list_table
+		thead
 			tr
-				td
-					= link_to property.title, property
-				td
-					= link_to 'Edit', edit_property_path(property)
-				td
-					= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' }
+				th ID
+				th Title
+				th Expires
+				th View
+				th Edit
 
-<br>
+		tbody
+			-tclass = "not-blue"
+			-@properties.each do |property|
+				-tclass = tclass=="blue" ? "not-blue" : "blue"
+				tr class="#{tclass}"
+					td 
+						= property.id
+					td
+						= link_to property.title, property
+					td
+						= property.expires.to_s
+					td
+						= link_to 'Go', property, class:"go_button"
+					td
+						= link_to 'Go', edit_property_path(property), class:"go_button"
+					/ td
+					/ 	= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to 'New Property', new_property_path
+	<br>
+
+	= link_to 'CREATE A NEW PROPERTY', new_property_path

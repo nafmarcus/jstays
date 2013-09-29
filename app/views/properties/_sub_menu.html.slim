@@ -1,10 +1,21 @@
-'Property Title:
-=@property.title
-nav
-	= link_to "View", property_path(@property)
-	' -
-	= link_to "Edit", edit_property_path(@property)
-	' -
-	= link_to "Pictures", property_property_pics_path(@property)
-	' -
-	= link_to "Availablity", property_available_dates_path(@property)
+.mini_menu_div
+	table.mini_menu align="center"
+		tbody
+			tr
+				th
+				th
+					div
+						= @property.title + " (" + @property.id.to_s + ")"
+					'Posted:
+					span = @property.created_at.to_s 
+					' Expires:
+					span = @property.expires.to_s
+				th
+				td
+					= link_to "", property_path(@property), class: "view_button"
+				td
+					= link_to "", edit_property_path(@property), class: "edit_button"
+				td
+					= link_to "", property_property_pics_path(@property), class: "pics_button"
+				td
+					= link_to "", property_available_dates_path(@property), class: "pics_button"
