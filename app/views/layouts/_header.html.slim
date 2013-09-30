@@ -1,14 +1,14 @@
 table#top-table.full_table
 	tr
 		td
-			nav.horizontal-nav.pull-right
-				ul
+			nav.pull-right
+				ul#jsddm
 					li
 						= link_to "Currency: " + session[:currency], ''
 					-if signed_in?
 						li
-							= link_to(raw(current_user.email + content_tag(:i, 'v', class: "halflings chevron")), "")
-							ul.dropdown-menu
+							= link_to(current_user.email, "#")
+							ul
 								li
 									= link_to "My profile", edit_user_path(current_user)
 								li

@@ -1,6 +1,9 @@
-h1 
-	|Enter New Property
-
-= render 'form'
-
-= link_to 'Back', properties_path
+.h1_wrapper
+	h1 Enter New Property 
+.main_area
+	.intro_area
+		|Use this form to enter a new property into the system.
+	.smallGray
+		| * indicates required field.
+	
+	= render 'form'

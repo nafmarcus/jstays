@@ -6,8 +6,8 @@
 .calendar td,
 .calendar th {
   font-family: "Lucida Grande",arial,helvetica,sans-serif;
-  font-size: 10px;
-  padding: 6px;
+  font-size: 8px;
+  padding: 1px;
   border: 1px solid #999;
 }
 
@@ -19,11 +19,37 @@
 }
 
 .calendar td {
-  background: #FFF;
+  /*background: #FFF;*/
   color: #777;
-  height: 80px;
   vertical-align: top;
+  text-align: center;
   font-size: 16px;
+}
+.calendar input {
+  width: 32px;
+  padding: 0;
+}
+.link-as-input {
+  width: 30px;
+  display: inline-block;
+  text-decoration: none;
+}
+.available input {
+  background: green;
+  color: white;
+}
+.low input{
+  background: blue;
+  color: white;
+}
+.main_area .high {
+  background: red;
+  color: white;
+}
+.month-box {
+  display: inline-block;
+  margin-right: 20px;
+  &:last-child {margin-right: 0};
 }
 
 .calendar .notmonth {
@@ -44,7 +70,7 @@
 }
 
 .calendar .today {
-  background-color: #D7F2FF;
+  background-color: yellow; //#D7F2FF;
 }
 
 .calendar ul {

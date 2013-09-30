@@ -1,5 +1,7 @@
-= form_for(available_date, remote: true) do |f|
+= form_for(available_date, :html => {:class => "low"}) do |f|
 	= f.hidden_field :a_date
+	= hidden_field_tag :query_date, params[:date]
+
 	.actions
-		= f.submit "Low"
+		= f.submit  available_date.a_date.day.to_s
 

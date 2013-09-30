@@ -1,18 +1,34 @@
-h1 Listing Available Dates
-= render "/properties/sub_menu"
-hr
-h2#month
-  = link_to "<", date: @date.prev_month
-  = @date.strftime("%B %Y")
-  = link_to ">", date: @date.next_month
-
-= calendar @date do |date|
-	= date.day
-	br
-	- available_date = @property.available_date(date)
-	-if available_date.nil? 
-		= render("/available_dates/new_form", date: date)
-	-elsif available_date.level == "low"
-		= render("/available_dates/edit_form", available_date: available_date)
-	-else
-		= link_to "High", available_date ,method: :delete 
+.h1_wrapper
+	h1 Property Vacancy Dates
+.main_area
+	= render "/properties/sub_menu"
+	.intro_area
+		| Use this form to enter vacancy dates for the property. 
+		| Blue will mean the property is available. 
+		| White will mean it is unavailable. 
+		| When you click on a specific date it will change from blue to white or 
+		| from white to blue. To select or un-select a full month, 
+		| use the "select all" button or the "clear all" button.
+	center
+		#all-month-boxes
+			-[@date - 1.month, @date, @date + 1.month].each_with_index do |tdate, idx|
+				.month-box
+					h2.month-name
+						span.nav-left.pull-left
+							=' link_to("<", date: tdate.prev_month) if idx == 0
+						= tdate.strftime("%B %Y")
+						br
+						=' link_to "all", "#"
+						= link_to "clear", "#"
+						span.nav-right.pull-right
+							= link_to(">", date: tdate.next_month) if idx == 2
+					= calendar tdate do |date|
+						- available_date = @property.available_date(date)
+						-if tdate.month != date.month
+							= ""
+						-elsif available_date.nil? 
+							= render("/available_dates/new_form", date: date)
+						-elsif available_date.level == "low"
+							= render("/available_dates/edit_form", available_date: available_date)
+						-else
+							= link_to available_date.a_date.day.to_s, available_date_path(available_date, date: params[:date]) ,method: :delete, class: "high link-as-input"

@@ -673,7 +673,13 @@ h2.blue								{	background-color:#eff3f7; border:1px solid #bcd1e7; padding-top
 
 /*		NOT SURE IF USED!			*/
 
-#new_property						{	display:inline-block; width:129px; height:0; padding-top:31px; overflow:hidden;
-										background-image:url(buttons/button_submit1.png); }
+#new_property						{	
+	/*display:inline-block; */
+	width:129px; 
+	height:0; 
+	padding-top:31px; 
+	overflow:hidden;
+	background-image:url(buttons/button_submit1.png); 
+}
 #new_property:hover					{	background-image:url(buttons/button_submit2.png); }
 

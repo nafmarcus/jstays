@@ -1,16 +1,16 @@
 = form_for(@property) do |f|
 
-	-if @property.errors.any?
-		#error_explanation
-			h2
-				| #{pluralize(@property.errors.count, "error")} prohibited this property from being saved:
+	/ -if @property.errors.any?
+	/ 	#error_explanation
+	/ 		h2
+	/ 			| #{pluralize(@property.errors.count, "error")} prohibited this property from being saved:
 
-			ul
-			-@property.errors.full_messages.each do |msg|
-				li
-					= msg
+	/ 		ul
+	/ 		-@property.errors.full_messages.each do |msg|
+	/ 			li
+	/ 				= msg
 
-	= f.hidden_field(:user_id)
+	= f.hidden_field(:user_id, value: current_user.id.to_s)
 	table.regularForm align="center"
 		tbody
 			tr
@@ -147,13 +147,6 @@
 									td.formSpace colspan="2"
 								tr
 									th
-										= f.label(:kosher, "Kosher?")
-									td
-										= f.check_box(:kosher)
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
 										= f.label(:comments1, "Comments")
 									td
 										= f.text_area(:comments1)
@@ -179,12 +172,13 @@
 									td
 										= f.check_box(:active)
 					
-	#amenities
+	#edit-amenities
 		h2 Amenities
 		-Amenities.each_with_index do |amenity, index|
-			span.item
-				=' check_box_tag "amenities[#{index}]", amenity
+			.amenity-item
+				=' check_box_tag "amenities[#{index}]", amenity, @property.amenities.include?(amenity)
 				= label_tag("amenities_#{index}", amenity)
+			= "<br>".html_safe if index%5 == 4
 
 	.actions
 		= f.submit "Submit", class: "btn btn-primary btn-large"

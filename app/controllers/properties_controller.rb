@@ -4,7 +4,7 @@ class PropertiesController < ApplicationController
   before_action :signed_in_user, :except => [:show]
 
   def index
-    @properties = Property.all
+    @properties = current_user.properties
   end
 
   def show
@@ -29,6 +29,7 @@ class PropertiesController < ApplicationController
   end
 
   def update
+    @property.amenities = params[:amenities].collect{|k, v| v}.join(",") if params[:amenities]
     if @property.update(property_params)
       redirect_to @property, notice: 'Property was successfully updated.'
     else

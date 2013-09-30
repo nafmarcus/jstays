@@ -53,7 +53,7 @@
 					#price_and_contact_owner
 						span PRICE
 						span 9 - USD Daily
-						= link_to image_tag("emailowner.png"), @property.user.email, class: "cboxElement"
+						= link_to image_tag("emailowner.png"), "mailto:"+@property.user.email
 
 					#right_info
 						table.tabs align="center"
@@ -71,34 +71,40 @@
 								tbody
 									tr
 										th.light valign="top" Type
-										td.light valign="top"
+										td.light valign="top" = PropertyTypes[@property.property_type.to_sym]
 									tr
 										th.dark valign="top" Duration
-										td.dark valign="top"
+										td.dark valign="top" = Duration[@property.duration.to_sym]
 									tr
 										th.light valign="top" Location
-										td.light valign="top"
+										td.light valign="top" = @property.location
 									tr
 										th.dark valign="top" # Bedrooms
-										td.dark valign="top"
+										td.dark valign="top" = @property.bedrooms
 									tr
 										th.light valign="top" # Bathrooms
-										td.light valign="top"
+										td.light valign="top" = @property.bathrooms
 									tr
 										th.dark valign="top" # Bed
-										td.dark valign="top"
+										td.dark valign="top" = @property.sleeps
 									tr
 										th.light valign="top" Floor
-										td.light valign="top"
+										td.light valign="top" = @property.floor
 									tr
 										th.dark valign="top" Other Fees
-										td.dark valign="top"
+										td.dark valign="top" = @property.other_expenses
 
 							table#amenities align="center" style="position: absolute; top: 0px; left: -9999px;"
 								tbody
 									tr
-										td valign="top"
-											|AMMENITIES TO BE FILLED IN
+										td.left-side valign="top"
+											-Amenities.slice(0, Amenities.count/2).each do |amenity|
+												div class="#{'found' if @property.amenities.include?(amenity)}"
+													= amenity
+										td.right-side
+											-Amenities.slice(Amenities.count/2, Amenities.count).each do |amenity|
+												div class="#{'found' if @property.amenities.include?(amenity)}"
+													= amenity
 					table#map_tabs
 						tbody
 							tr

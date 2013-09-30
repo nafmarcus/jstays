@@ -1,4 +1,5 @@
-= form_for([@property, @available_date]) do |f|
+= form_for([@property, @available_date], :html => {:class => "available"}) do |f|
 	= f.hidden_field :date, value: date.to_s
+	= hidden_field_tag :query_date, params[:date]
 	.actions
-		= f.submit "Add"
+		= f.submit date.day.to_s

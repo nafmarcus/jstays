@@ -5,7 +5,7 @@ class AvailableDatesController < ApplicationController
     @property = Property.find(params[:property_id])
     @available_dates = @property.available_dates
     @available_date = AvailableDate.new
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @date = params[:date].present? ? Date.parse(params[:date]) : Date.today
   end
 
   # def show
@@ -21,10 +21,10 @@ class AvailableDatesController < ApplicationController
                                         level: :low)
     respond_to do |format|
       if @available_date.save
-        format.html { redirect_to property_available_dates_path(@available_date.property)}
+        format.html { redirect_to property_available_dates_path(@available_date.property, date: params[:query_date])}
         format.json { render action: 'show', status: :created, location: @available_date }
       else
-        format.html { redirect_to property_available_dates_path(@available_date.property)}
+        format.html { redirect_to property_available_dates_path(@available_date.property, date: params[:query_date])}
         format.json { render json: @available_date.errors, status: :unprocessable_entity }
       end
     end
@@ -36,10 +36,10 @@ class AvailableDatesController < ApplicationController
   def update
     respond_to do |format|
       if @available_date.update(level: :high)
-        format.html { redirect_to property_available_dates_path(@available_date.property)}
+        format.html { redirect_to property_available_dates_path(@available_date.property, date: params[:query_date])}
         format.json { head :no_content }
       else
-        format.html { redirect_to property_available_dates_path(@available_date.property)}
+        format.html { redirect_to property_available_dates_path(@available_date.property, date: params[:query_date])}
         format.json { render json: @available_date.errors, status: :unprocessable_entity }
       end
     end
@@ -49,7 +49,7 @@ class AvailableDatesController < ApplicationController
     @property = @available_date.property
     @available_date.destroy
     respond_to do |format|
-      format.html { redirect_to property_available_dates_path(@property) }
+      format.html { redirect_to property_available_dates_path(@property, date: params[:date]) }
       format.json { head :no_content }
     end
   end
