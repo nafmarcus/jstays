@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   					format: { with: VALID_EMAIL_REGEX }
   	# validates :password, length: { minimum: 6 }
 
-  has_many :properties
+  has_many :properties, :dependent => :destroy
   
 	def User.new_remember_token
     SecureRandom.urlsafe_base64

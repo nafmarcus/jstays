@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909192403) do
+ActiveRecord::Schema.define(version: 20131006232156) do
 
   create_table "available_dates", force: true do |t|
     t.integer "property_id"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20130909192403) do
     t.float    "other_expenses"
     t.string   "location"
     t.text     "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.float    "lat"
     t.float    "long"
     t.string   "floor"
@@ -67,6 +69,16 @@ ActiveRecord::Schema.define(version: 20130909192403) do
   end
 
   add_index "property_pics", ["property_id"], name: "index_property_pics_on_property_id"
+
+  create_table "property_reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "property_id"
+    t.integer  "rating"
+    t.text     "body"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"

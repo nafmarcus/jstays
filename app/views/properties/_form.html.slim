@@ -176,7 +176,7 @@
 		h2 Amenities
 		-Amenities.each_with_index do |amenity, index|
 			.amenity-item
-				=' check_box_tag "amenities[#{index}]", amenity, @property.amenities.include?(amenity)
+				=' check_box_tag "amenities[#{index}]", amenity, (@property.amenities.include?(amenity) if @property.amenities)
 				= label_tag("amenities_#{index}", amenity)
 			= "<br>".html_safe if index%5 == 4
 

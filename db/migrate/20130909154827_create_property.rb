@@ -12,6 +12,8 @@ class CreateProperty < ActiveRecord::Migration
     	t.float		:other_expenses
     	t.string	:location
     	t.text		:address
+        t.float     :latitude
+        t.float     :longitude
         t.float     :lat
         t.float     :long
     	t.string	:floor

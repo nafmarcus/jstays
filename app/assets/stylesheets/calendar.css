@@ -38,9 +38,9 @@
   background: green;
   color: white;
 }
-.low input{
+.low, .low input{
   background: blue;
-  color: white;
+  color: white !important;
 }
 .main_area .high {
   background: red;
@@ -85,4 +85,10 @@
   padding: 0;
   font-size: 11px;
   text-align: center;
+}
+#available-dates-view {
+  text-align: center;
+}
+#available-dates-view td { 
+  width: 35px;
 }

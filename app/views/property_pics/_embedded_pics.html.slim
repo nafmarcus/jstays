@@ -1,10 +1,14 @@
-#property-pics
-	-@property.property_pics.each_with_index do |pic, idx|
-		.item class="#{'active' if idx ==0}"
-			= image_tag(pic.image.url(:w480))
+-if @property.property_pics.present?
+	#property-pics-gallery.jgallery
+		#property-pics
+			-@property.property_pics.each_with_index do |pic, idx|
+				div id="image#{idx}" class="item #{'active' if idx ==0}"
+					= image_tag(pic.image.url(:w480))
 
-#thumbnails
-ul
-	-@property.property_pics.each_with_index do |pic, idx|
-		.li class="#{'active' if idx ==0}"
-			= image_tag(pic.image.url(:w40))
+		#thumbnails
+			ul
+				-@property.property_pics.each_with_index do |pic, idx|
+					li class="#{'active' if idx == 0}"
+						= link_to image_tag(pic.image.url(:w80)), "#", img_target: "image#{idx}"
+-else
+	|There are no pictures

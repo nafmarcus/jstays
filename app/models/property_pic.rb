@@ -1,6 +1,6 @@
 class PropertyPic < ActiveRecord::Base
 
-belongs_to :property
+belongs_to :property, :dependent => :destroy
 
 has_attached_file :image, :path => ":rails_root/public/system/:class/:attachment/:style/:filename",
 			:url => "/system/:class/:attachment/:style/:filename",

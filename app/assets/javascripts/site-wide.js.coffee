@@ -5,3 +5,10 @@ jQuery ->
 	$('#jsddm > li').bind('mouseover', jsddm_open)
 	$('#jsddm > li').bind('mouseout',  jsddm_timer)
 
+	$('#property-pics .item').hide()
+	$('#property-pics .item.active').show()
+
+	$('#thumbnails a').click ->
+		$('#property-pics .item').hide()
+		$('#'+$(this).attr('img_target')).show()
+		return false
