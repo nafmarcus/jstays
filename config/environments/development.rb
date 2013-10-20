@@ -28,4 +28,15 @@ Jstays::Application.configure do
   config.assets.debug = true
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    s3_host_name: 's3.amazonaws.com', #s3-us-west-2.amazonaws.com
+    :s3_credentials => {
+      :bucket => "jstays-dev",
+      :access_key_id => "AKIAJCWALTMOVSBBZKZA",
+      :secret_access_key => "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"
+    }
+  }
+
 end

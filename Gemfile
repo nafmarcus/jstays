@@ -7,7 +7,8 @@ gem 'rails_12factor' #for heroku
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
-gem 'pg'
+# gem 'pg'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -20,6 +21,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'rb-readline', '~> 0.5.0', :require => false
 
 gem "paperclip", "~> 3.0"
+gem "aws-sdk"
 gem "geocoder"
 
 # Use Uglifier as compressor for JavaScript assets

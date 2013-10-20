@@ -34,7 +34,7 @@ Jstays::Application.configure do
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
-
+ 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
@@ -77,4 +77,15 @@ Jstays::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    s3_host_name: 's3.amazonaws.com', #s3-us-west-2.amazonaws.com
+    :s3_credentials => {
+      :bucket => "jstays",
+      :access_key_id => "AKIAJCWALTMOVSBBZKZA",
+      :secret_access_key => "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"
+    }
+  }
+
 end

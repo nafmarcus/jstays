@@ -14,11 +14,11 @@ body									{	margin:0; background-repeat:repeat-x; }
 #top_table *							{	font-size:12px; color:black; }
 #top_login, #top_password			{	color:#999999; }
 #property_search					{	display:inline-block; width:115px; height:0; padding-top:19px; overflow:hidden;
-										background-image:url(buttons/button_search1.png); cursor:pointer; }
-#property_search:hover				{	background-image:url(buttons/button_search2.png); }
+										background-image:asset-url("buttons/button_search1.png"); cursor:pointer; }
+#property_search:hover				{	background-image:asset-url("buttons/button_search2.png"); }
 .go_button							{	display:inline-block; width:37px; height:0; padding-top:19px; overflow:hidden;
-										background-image:url(buttons/button_go1.png); }
-.go_button:hover					{	background-image:url(buttons/button_go2.png); }
+										background-image:asset-url("buttons/button_go1.png"); }
+.go_button:hover					{	background-image:asset-url("buttons/button_go2.png"); }
 
 #logo_table							{	background-image: asset-url("logo.png"); background-repeat:no-repeat; }
 #logo_top							{	height:30px; }
@@ -27,20 +27,20 @@ body									{	margin:0; background-repeat:repeat-x; }
 
 #nav a, #nav span						{	display:inline-block; height:36px; }
 #nav_home *							{	width:77px; }
-#nav_home a							{	background:url(nav/nav_home1.png); }
-#nav_home a:hover, #nav_home span		{	background:url(nav/nav_home2.png); }
+#nav_home a							{	background:asset-url("nav/nav_home1.png"); }
+#nav_home a:hover, #nav_home span		{	background:asset-url("nav/nav_home2.png"); }
 #nav_about *							{	width:102px; }
-#nav_about a							{	background:url(nav/nav_about1.png); }
-#nav_about a:hover, #nav_about span	{	background:url(nav/nav_about2.png); }
+#nav_about a							{	background:asset-url("nav/nav_about1.png"); }
+#nav_about a:hover, #nav_about span	{	background:asset-url("nav/nav_about2.png"); }
 #nav_faq *							{	width:63px; }
-#nav_faq a							{	background:url(nav/nav_faq1.png); }
-#nav_faq a:hover, #nav_faq span		{	background:url(nav/nav_faq2.png); }
+#nav_faq a							{	background:asset-url("nav/nav_faq1.png"); }
+#nav_faq a:hover, #nav_faq span		{	background:asset-url("nav/nav_faq2.png"); }
 #nav_post *							{	width:166px; }
-#nav_post a							{	background:url(nav/nav_post1.png); }
-#nav_post a:hover, #nav_post span		{	background:url(nav/nav_post2.png); }
+#nav_post a							{	background:asset-url("nav/nav_post1.png"); }
+#nav_post a:hover, #nav_post span		{	background:asset-url("nav/nav_post2.png"); }
 #nav_blog *							{	width:135px; }
-#nav_blog a							{	background:url(nav/nav_blog1.png); }
-#nav_blog a:hover, #nav_blog span		{	background:url(nav/nav_blog2.png); }
+#nav_blog a							{	background:asset-url("nav/nav_blog1.png"); }
+#nav_blog a:hover, #nav_blog span		{	background:asset-url("nav/nav_blog2.png"); }
 
 /*		FOOTER						*/
 
@@ -53,21 +53,21 @@ body									{	margin:0; background-repeat:repeat-x; }
 
 /*		HOME						*/
 
-#home_table							{	margin-top:12px; background-image:url(home/bg_middle.jpg); height:385px; }
+#home_table							{	margin-top:12px; background-image:asset-url("home/bg_middle.jpg"); height:385px; }
 #home_left							{	text-align:center; padding-top:50px; }
 #home_left div						{	margin:45px 0; }
 #home_place							{	display:inline-block; width:261px; height:47px;
-										background-image:url(buttons/button_findplace1.png); }
-#home_place:hover					{	background-image:url(buttons/button_findplace2.png); }
+										background-image:asset-url("buttons/button_findplace1.png"); }
+#home_place:hover					{	background-image:asset-url("buttons/button_findplace2.png"); }
 #home_roommate						{	display:inline-block; width:241px; height:47px;
-										background-image:url(buttons/button_findroommate1.png); }
-#home_roommate:hover				{	background-image:url(buttons/button_findroommate2.png); }
+										background-image:asset-url("buttons/button_findroommate1.png"); }
+#home_roommate:hover				{	background-image:asset-url("buttons/button_findroommate2.png"); }
 .home_long_term						{	display:inline-block; width:129px; height:32px;
-										background-image:url(buttons/button_long1.png); }
-.home_long_term:hover				{	background-image:url(buttons/button_long2.png); }
+										background-image:asset-url("buttons/button_long1.png"); }
+.home_long_term:hover				{	background-image:asset-url("buttons/button_long2.png"); }
 .home_short_term					{	display:inline-block; width:129px; height:32px;
-										background-image:url(buttons/button_short1.png); }
-.home_short_term:hover				{	background-image:url(buttons/button_short2.png); }
+										background-image:asset-url("buttons/button_short1.png"); }
+.home_short_term:hover				{	background-image:asset-url("buttons/button_short2.png"); }
 #home_table select						{	width:400px; height:40px; font-size:25px; }
 #home_right							{	padding-top:25px; padding-left:120px; }
 
@@ -102,11 +102,11 @@ body									{	margin:0; background-repeat:repeat-x; }
 /*			LOGIN					*/
 
 .main_area .alarm					{	font-weight:bold; color:red; }
-.login_area							{	background-image:url(gradient/login_bg.gif); background-repeat:repeat-x;
+.login_area							{	background-image:asset-url("gradient/login_bg.gif"); background-repeat:repeat-x;
 										border-left:2px solid #e4e4e4; border-right:2px solid #e4e4e4; }
 #login_submit						{	display:inline-block; width:129px; height:0; padding-top:31px; overflow:hidden;
-										background-image:url(buttons/button_login1.png); }
-#login_submit:hover					{	background-image:url(buttons/button_login2.png); }
+										background-image:asset-url("buttons/button_login1.png"); }
+#login_submit:hover					{	background-image:asset-url("buttons/button_login2.png"); }
 
 /*			ROTATION				*/
 
@@ -129,23 +129,23 @@ body									{	margin:0; background-repeat:repeat-x; }
 .slideboxContainer{margin:0;}
 .slidebox ul li .slideboxCaption{padding:0;}
 /*
-#banner_top { width:921px; height:15px; background-image:url(banner_top.jpg); }
-#banner_bottom { width:921px; height:18px; background-image:url(banner_bottom.jpg); }
-#banner_left { width:15px; height:258px; background-image:url(banner_left.jpg); }
-#banner_right{ width:16px; height:258px; background-image:url(banner_right.jpg); }
+#banner_top { width:921px; height:15px; background-image:asset-url("banner_top.jpg); }
+#banner_bottom { width:921px; height:18px; background-image:asset-url("banner_bottom.jpg); }
+#banner_left { width:15px; height:258px; background-image:asset-url("banner_left.jpg); }
+#banner_right{ width:16px; height:258px; background-image:asset-url("banner_right.jpg); }
 */
 .slidebox img{width:359px; height:291px; }
 
 /*		THUMB CONTAINERS			*/
 
-.top_left							{	background-image:url(frame/picframe_topleftcorner.png); width:7px; height:6px; }
-.top_middle							{	background-image:url(frame/picframe_topmiddle.png); height:6px; }
-.top_right							{	background-image:url(frame/picframe_toprightcorner.png); width:9px; height:6px; }
-.bot_left							{	background-image:url(frame/picframe_botleftcorner.png); width:7px; height:10px; }
-.bot_middle							{	background-image:url(frame/picframe_botmiddle.png); height:10px; }
-.bot_right							{	background-image:url(frame/picframe_botrightcorner.png); width:9px; height:10px; }
-.mid_left							{	background-image:url(frame/picframe_leftmiddle.png); background-repeat:repeat-y; }
-.mid_right							{	background-image:url(frame/picframe_rightmiddle.png); background-repeat:repeat-y; }
+.top_left							{	background-image:asset-url("frame/picframe_topleftcorner.png"); width:7px; height:6px; }
+.top_middle							{	background-image:asset-url("frame/picframe_topmiddle.png"); height:6px; }
+.top_right							{	background-image:asset-url("frame/picframe_toprightcorner.png"); width:9px; height:6px; }
+.bot_left							{	background-image:asset-url("frame/picframe_botleftcorner.png"); width:7px; height:10px; }
+.bot_middle							{	background-image:asset-url("frame/picframe_botmiddle.png"); height:10px; }
+.bot_right							{	background-image:asset-url("frame/picframe_botrightcorner.png"); width:9px; height:10px; }
+.mid_left							{	background-image:asset-url("frame/picframe_leftmiddle.png"); background-repeat:repeat-y; }
+.mid_right							{	background-image:asset-url("frame/picframe_rightmiddle.png"); background-repeat:repeat-y; }
 
 /*		PAGES DISPLAYING COLUMN OF IMAGES	*/
 
@@ -166,8 +166,8 @@ body									{	margin:0; background-repeat:repeat-x; }
 										background-color:#FFF9D7; }
 .list_table .blue *					{	}
 #create_property					{	display:inline-block; width:255px; height:0; padding-top:31px; overflow:hidden;
-										background-image:url(buttons/button_create1.png); }
-#create_property:hover				{	background-image:url(buttons/button_create2.png); }
+										background-image:asset-url("buttons/button_create1.png"); }
+#create_property:hover				{	background-image:asset-url("buttons/button_create2.png"); }
 
 /*		PROPERTY OWNER MENU			*/
 
@@ -201,26 +201,26 @@ body									{	margin:0; background-repeat:repeat-x; }
 .mini_menu th div						{	font-size:18px; }
 .mini_menu th span					{	font-weight:normal; }
 .renew_button						{	display:inline-block; width:88px; height:0; padding-top:39px; overflow:hidden;
-										background-image:url(buttons/property_owner/button_renew1.gif); }
+										background-image:asset-url("buttons/property_owner/button_renew1.gif"); }
 .renew_button:hover, span.renew_button
-									{	background-image:url(buttons/property_owner/button_renew2.gif); }
+									{	background-image:asset-url("buttons/property_owner/button_renew2.gif"); }
 .view_button						{	display:inline-block; width:76px; height:0; padding-top:39px; overflow:hidden;
-										background-image:url(buttons/property_owner/button_view1.gif); }
-.view_button:hover, span.view_button	{	background-image:url(buttons/property_owner/button_view2.gif); }
+										background-image:asset-url("buttons/property_owner/button_view1.gif"); }
+.view_button:hover, span.view_button	{	background-image:asset-url("buttons/property_owner/button_view2.gif"); }
 .edit_button						{	display:inline-block; width:71px; height:0; padding-top:39px; overflow:hidden;
-										background-image:url(buttons/property_owner/button_edit1.gif); }
-.edit_button:hover, span.edit_button	{	background-image:url(buttons/property_owner/button_edit2.gif); }
+										background-image:asset-url("buttons/property_owner/button_edit1.gif"); }
+.edit_button:hover, span.edit_button	{	background-image:asset-url("buttons/property_owner/button_edit2.gif"); }
 .pics_button						{	display:inline-block; width:69px; height:0; padding-top:39px; overflow:hidden;
-										background-image:url(buttons/property_owner/button_pics1.gif); }
-.pics_button:hover, span.pics_button	{	background-image:url(buttons/property_owner/button_pics2.gif); }
+										background-image:asset-url("buttons/property_owner/button_pics1.gif"); }
+.pics_button:hover, span.pics_button	{	background-image:asset-url("buttons/property_owner/button_pics2.gif"); }
 .availability_button				{	display:inline-block; width:112px; height:0; padding-top:39px; overflow:hidden;
-										background-image:url(buttons/property_owner/button_avail1.gif); }
+										background-image:asset-url("buttons/property_owner/button_avail1.gif"); }
 .availability_button:hover, span.availability_button
-									{	background-image:url(buttons/property_owner/button_avail2.gif); }
+									{	background-image:asset-url("buttons/property_owner/button_avail2.gif"); }
 .high_rent_button					{	display:inline-block; width:106px; height:0; padding-top:39px; overflow:hidden;
-										background-image:url(buttons/property_owner/button_highrent1.gif); }
+										background-image:asset-url("buttons/property_owner/button_highrent1.gif"); }
 .high_rent_button:hover, span.high_rent_button
-									{	background-image:url(buttons/property_owner/button_highrent2.gif); }
+									{	background-image:asset-url("buttons/property_owner/button_highrent2.gif"); }
 
 /*		FORMS						*/
 
@@ -250,7 +250,7 @@ a.tooltip:hover span				{	display:inline; position:absolute; background:#F4F9FC;
 
 .toolTip { /* This is the hook that the jQuery script will use */
 	padding-right: 20px; /* This is need to make sure that the help icon is always visible */
-	background: transparent url(help.gif) no-repeat right;
+	background: transparent asset-url("help.gif") no-repeat right;
 	position: relative; /* This contains the .toolTipWrapper div that is absolutely positioned  */
 }
 .toolTipWrapper { /* The wrapper holds its insides together */
@@ -328,11 +328,11 @@ form #calContainer					{	width:630px;
 									{	color:#0D4365; }
 									
 .clear_button						{	display:inline-block; width:66px; height:0; padding-top:19px; overflow:hidden;
-										background-image:url(buttons/button_clear1.png); }
-.clear_button:hover					{	background-image:url(buttons/button_clear2.png); }
+										background-image:asset-url("buttons/button_clear1.png"); }
+.clear_button:hover					{	background-image:asset-url("buttons/button_clear2.png"); }
 .select_button						{	display:inline-block; width:72px; height:0; padding-top:19px; overflow:hidden;
-										background-image:url(buttons/button_select1.png); }
-.select_button:hover				{	background-image:url(buttons/button_select2.png); }
+										background-image:asset-url("buttons/button_select1.png"); }
+.select_button:hover				{	background-image:asset-url("buttons/button_select2.png"); }
 
 /*		LINKS						*/
 
@@ -358,15 +358,15 @@ form #calContainer					{	width:630px;
 .question							{	font-size:16px; font-weight:bold; margin-top:15px; padding-left:20px; }
 .question:hover						{	text-decoration:underline; }
 .open, .closed						{	background-repeat:no-repeat; background-position:0 3px; }
-.open								{	background-image:url(minus.png); }
-.closed								{	background-image:url(plus.png); }
+.open								{	background-image:asset-url("minus.png"); }
+.closed								{	background-image:asset-url("plus.png"); }
 .answer								{	padding-left:50px; padding-right:30px; margin-top:14px; margin-bottom:32px; }
 #show_all							{	display:inline-block; width:66px; height:0; padding-top:19px; overflow:hidden;
-										background-image:url(buttons/button_show1.png); cursor:pointer; }
-#show_all:hover						{	background-image:url(buttons/button_show2.png); }
+										background-image:asset-url("buttons/button_show1.png"); cursor:pointer; }
+#show_all:hover						{	background-image:asset-url("buttons/button_show2.png"); }
 #hide_all							{	display:inline-block; width:60px; height:0; padding-top:19px; overflow:hidden;
-										background-image:url(buttons/button_hide1.png); cursor:pointer; }
-#hide_all:hover						{	background-image:url(buttons/button_hide2.png); }
+										background-image:asset-url("buttons/button_hide1.png"); cursor:pointer; }
+#hide_all:hover						{	background-image:asset-url("buttons/button_hide2.png"); }
 
 /*		GALLERY						*/
 
@@ -396,19 +396,19 @@ form #calContainer					{	width:630px;
 										background-color: #bbbaba;
 
 										/* Safari 4-5, Chrome 1-9 */
-										background:url(map-divider.gif) repeat-y right 0, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bbbaba), to(#f6f6f6));
+										background:asset-url("map-divider.gif") repeat-y right 0, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bbbaba), to(#f6f6f6));
 
 										/* Safari 5.1, Chrome 10+ */
-										background:url(map-divider.gif) repeat-y right 0, -webkit-linear-gradient(top, #f6f6f6, #bbbaba);
+										background:asset-url("map-divider.gif") repeat-y right 0, -webkit-linear-gradient(top, #f6f6f6, #bbbaba);
 
 										/* Firefox 3.6+ */
-										background:url(map-divider.gif) repeat-y right 0, -moz-linear-gradient(top, #f6f6f6, #bbbaba);
+										background:asset-url("map-divider.gif") repeat-y right 0, -moz-linear-gradient(top, #f6f6f6, #bbbaba);
 
 										/* IE 10 */
-										background:url(map-divider.gif) repeat-y right 0, -ms-linear-gradient(top, #f6f6f6, #bbbaba);
+										background:asset-url("map-divider.gif") repeat-y right 0, -ms-linear-gradient(top, #f6f6f6, #bbbaba);
 
 										/* Opera 11.10+ */
-										background:url(map-divider.gif) repeat-y right 0, -o-linear-gradient(top, #f6f6f6, #bbbaba);
+										background:asset-url("map-divider.gif") repeat-y right 0, -o-linear-gradient(top, #f6f6f6, #bbbaba);
 									}
 
 #main_info .tabs						{	width:640px; }
@@ -428,14 +428,14 @@ form #calContainer					{	width:630px;
 										font-weight:bold; }
 #main_info .tabs .unselected a		{	background-color:#dfeaf5; color:#6d9ccc; border-top:1px solid #d8d7d7;
 										border-left:1px solid #d8d7d7; border-right:1px solid #d8d7d7; }
-#photos_tab.selected a				{	background-image:url(photos-icon-color.png); }
-#calendar_tab.selected a				{	background-image:url(calendar-icon-color.png); }
-#map_tab.selected a					{	background-image:url(map-icon-color.png); }
-#reviews_tab.selected a				{	background-image:url(reviews-icon-color.png); }
-#photos_tab.unselected a				{	background-image:url(photos-icon-blue.png); }
-#calendar_tab.unselected a			{	background-image:url(calendar-icon-blue.png); }
-#map_tab.unselected a				{	background-image:url(map-icon-blue.png); }
-#reviews_tab.unselected a			{	background-image:url(reviews-icon-blue.png); }
+#photos_tab.selected a				{	background-image:asset-url("photos-icon-color.png"); }
+#calendar_tab.selected a				{	background-image:asset-url("calendar-icon-color.png"); }
+#map_tab.selected a					{	background-image:asset-url("map-icon-color.png"); }
+#reviews_tab.selected a				{	background-image:asset-url("reviews-icon-color.png"); }
+#photos_tab.unselected a				{	background-image:asset-url("photos-icon-blue.png"); }
+#calendar_tab.unselected a			{	background-image:asset-url("calendar-icon-blue.png"); }
+#map_tab.unselected a				{	background-image:asset-url("map-icon-blue.png"); }
+#reviews_tab.unselected a			{	background-image:asset-url("reviews-icon-blue.png"); }
 				
 #current_content					{	background-color:#f3f3f3; margin-left:6px; margin-right:6px; padding:15px;
 										border-left:1px solid #c2cad8; border-right:1px solid #c2cad8; border-bottom:1px solid #c2cad8; }
@@ -468,10 +468,10 @@ form #calContainer					{	width:630px;
 #no_reviews > div > span				{	text-align:center; font-family:'Open Sans', sans-serif; font-size:14px; color:#74A1CE;
 										display:block; }
 #member_review_button				{	margin-top:20px; }
-#member_review_button a				{	display:inline-block; height:24px;background-image:url(write_review.png);
+#member_review_button a				{	display:inline-block; height:24px;background-image:asset-url("write_review.png");
 										background-repeat:no-repeat; color:#9A6F08; text-indent:30px;
 										font-family:'Open Sans', sans-serif; font-size:15px;}
-#member_review_button a:last-child	{	background-image:url(bulb.png); text-indent:26px; font-size:12px; float:right; }
+#member_review_button a:last-child	{	background-image:asset-url("bulb.png"); text-indent:26px; font-size:12px; float:right; }
 #no_reviews #member_review_button	{	text-align:center; }
 #no_reviews #member_review_button span
 									{	display:block; height:25px; }
@@ -489,19 +489,19 @@ form #calContainer					{	width:630px;
 										background-color: #b1a259;
 
 										/* Safari 4-5, Chrome 1-9 */
-										background:url(details-icon.png) no-repeat 20px center, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b1a259), to(#fdf5cd));
+										background:asset-url("details-icon.png") no-repeat 20px center, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b1a259), to(#fdf5cd));
 
 										/* Safari 5.1, Chrome 10+ */
-										background:url(details-icon.png) no-repeat 20px center, -webkit-linear-gradient(top, #fdf5cd, #b1a259);
+										background:asset-url("details-icon.png") no-repeat 20px center, -webkit-linear-gradient(top, #fdf5cd, #b1a259);
 
 										/* Firefox 3.6+ */
-										background:url(details-icon.png) no-repeat 20px center, -moz-linear-gradient(top, #fdf5cd, #b1a259);
+										background:asset-url("details-icon.png") no-repeat 20px center, -moz-linear-gradient(top, #fdf5cd, #b1a259);
 
 										/* IE 10 */
-										background:url(details-icon.png) no-repeat 20px center, -ms-linear-gradient(top, #fdf5cd, #b1a259);
+										background:asset-url("details-icon.png") no-repeat 20px center, -ms-linear-gradient(top, #fdf5cd, #b1a259);
 
 										/* Opera 11.10+ */
-										background:url(details-icon.png) no-repeat 20px center, -o-linear-gradient(top, #fdf5cd, #b1a259);
+										background:asset-url("details-icon.png") no-repeat 20px center, -o-linear-gradient(top, #fdf5cd, #b1a259);
 									}
 #details							{	background-color:#fefbec; border-left:1px solid #ded29c; border-right:1px solid #ded29c;
 										border-bottom:1px solid #ded29c; width:653px; }
@@ -561,7 +561,7 @@ form #calContainer					{	width:630px;
 #amenities th							{	width:20px; }
 #amenities *							{	font-family: 'Open Sans', sans-serif; font-size:13px; }
 #amenities div						{	padding-left:17px; padding-top:3px; padding-bottom:3px; color:#E3E5E5; }
-#amenities .found					{	color:#326EAA; background-image:url(checked.gif); background-repeat:no-repeat;
+#amenities .found					{	color:#326EAA; background-image:asset-url("checked.gif"); background-repeat:no-repeat;
 										background-position:0 7px; }
 										
 /*		SMALL MAP					*/
@@ -574,19 +574,19 @@ form #calContainer					{	width:630px;
 										background-color: #d9dadb;
 
 										/* Safari 4-5, Chrome 1-9 */
-										background:url(map-divider.gif) repeat-y right 0, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d9dadb), to(#ffffff));
+										background:asset-url("map-divider.gif") repeat-y right 0, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d9dadb), to(#ffffff));
 
 										/* Safari 5.1, Chrome 10+ */
-										background:url(map-divider.gif) repeat-y right 0, -webkit-linear-gradient(top, #ffffff, #d9dadb);
+										background:asset-url("map-divider.gif") repeat-y right 0, -webkit-linear-gradient(top, #ffffff, #d9dadb);
 
 										/* Firefox 3.6+ */
-										background:url(map-divider.gif) repeat-y right 0, -moz-linear-gradient(top, #ffffff, #d9dadb);
+										background:asset-url("map-divider.gif") repeat-y right 0, -moz-linear-gradient(top, #ffffff, #d9dadb);
 
 										/* IE 10 */
-										background:url(map-divider.gif) repeat-y right 0, -ms-linear-gradient(top, #ffffff, #d9dadb);
+										background:asset-url("map-divider.gif") repeat-y right 0, -ms-linear-gradient(top, #ffffff, #d9dadb);
 
 										/* Opera 11.10+ */
-										background:url(map-divider.gif) repeat-y right 0, -o-linear-gradient(top, #ffffff, #d9dadb);
+										background:asset-url("map-divider.gif") repeat-y right 0, -o-linear-gradient(top, #ffffff, #d9dadb);
 									}
 #map_tabs td:last-child a				{	-moz-border-radius-topright:15px; border-top-right-radius:15px;
 										border-right:1px solid #dedfdf;
@@ -645,7 +645,7 @@ form #calContainer					{	width:630px;
 .single_property_result h2 a			{	display:block; color:#326EAA; font-family:'Open Sans', sans-serif; font-size:16px;
 										line-height:22px; text-decoration:none; }
 .single_property_result th			{	width:10px; }
-.view_details						{	display:inline-block; width:166px; height:43px; background-image:url(view_details.gif); }
+.view_details						{	display:inline-block; width:166px; height:43px; background-image:asset-url("view_details.gif"); }
 
 /*		SEARCH RESULTS FILTER		*/
 
@@ -679,7 +679,7 @@ h2.blue								{	background-color:#eff3f7; border:1px solid #bcd1e7; padding-top
 	height:0; 
 	padding-top:31px; 
 	overflow:hidden;
-	background-image:url(buttons/button_submit1.png); 
+	background-image:asset-url("buttons/button_submit1.png"); 
 }
-#new_property:hover					{	background-image:url(buttons/button_submit2.png); }
+#new_property:hover					{	background-image:asset-url("buttons/button_submit2.png"); }
 

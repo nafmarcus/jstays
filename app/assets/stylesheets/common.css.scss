@@ -21,14 +21,14 @@ td									{	text-align:left; padding:0; }
 .regularForm textarea, .regularForm select, .regularForm .text, .regularForm .password
 									{	border:1px solid #3D7FA9; }
 #submit								{	display:inline-block; width:129px; height:0; padding-top:31px; overflow:hidden;
-										background-image:url("/buttons/button_submit1.png"); }
-#submit:hover						{	background-image:url("/buttons/button_submit2.png"); }
+										background-image:asset-url("/buttons/button_submit1.png"); }
+#submit:hover						{	background-image:asset-url("/buttons/button_submit2.png"); }
 .login_yes							{	display:inline-block; width:238px; height:0; padding-top:31px; overflow:hidden;
-										background-image:url("/buttons/button_login_yes1.png"); }
+										background-image:asset-url("/buttons/button_login_yes1.png"); }
 .login_no							{	display:inline-block; width:294px; height:0; padding-top:31px; overflow:hidden;
-										background-image:url("/buttons/button_login_no1.png"); }
-.login_no:hover						{	background-image:url("/buttons/button_login_no2.png"); }
-.login_yes:hover					{	background-image:url("/buttons/button_login_yes2.png"); }
+										background-image:asset-url("/buttons/button_login_no1.png"); }
+.login_no:hover						{	background-image:asset-url("/buttons/button_login_no2.png"); }
+.login_yes:hover					{	background-image:asset-url("/buttons/button_login_yes2.png"); }
 
-span.stars, span.stars span			{	display:block; background:url("/stars.png") 0 -16px repeat-x; width:80px; height: 16px; }
+span.stars, span.stars span			{	display:block; background:asset-url("/stars.png") 0 -16px repeat-x; width:80px; height: 16px; }
 span.stars span						{	background-position: 0 0; }
