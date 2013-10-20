@@ -13,13 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20131006232156) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "available_dates", force: true do |t|
     t.integer "property_id"
     t.date    "a_date"
     t.string  "level"
   end
 
-  add_index "available_dates", ["property_id"], name: "index_available_dates_on_property_id"
+  add_index "available_dates", ["property_id"], name: "index_available_dates_on_property_id", using: :btree
 
   create_table "properties", force: true do |t|
     t.integer  "user_id"
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(version: 20131006232156) do
     t.datetime "updated_at"
   end
 
-  add_index "property_pics", ["property_id"], name: "index_property_pics_on_property_id"
+  add_index "property_pics", ["property_id"], name: "index_property_pics_on_property_id", using: :btree
 
   create_table "property_reviews", force: true do |t|
     t.integer  "user_id"
@@ -105,7 +108,7 @@ ActiveRecord::Schema.define(version: 20131006232156) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end
