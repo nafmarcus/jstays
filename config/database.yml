@@ -31,3 +31,4 @@ development:
   encoding: unicode
   database: jstays
   pool: 5
+  password:
