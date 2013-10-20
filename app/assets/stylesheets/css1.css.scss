@@ -20,7 +20,7 @@ body									{	margin:0; background-repeat:repeat-x; }
 										background-image:url(buttons/button_go1.png); }
 .go_button:hover					{	background-image:url(buttons/button_go2.png); }
 
-#logo_table							{	background-image:url(logo.png); background-repeat:no-repeat; }
+#logo_table							{	background-image: asset-url("logo.png"); background-repeat:no-repeat; }
 #logo_top							{	height:30px; }
 
 /*		NAVBAR						*/
