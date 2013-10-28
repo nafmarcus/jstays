@@ -12,3 +12,5 @@ jQuery ->
 		$('#property-pics .item').hide()
 		$('#'+$(this).attr('img_target')).show()
 		return false
+
+	$('#long_term_rate_fields').hide()

@@ -10,7 +10,12 @@ div style=""
 			tr
 				td#home_left valign="top"
 					= image_tag "home/where.png"
-					|FORM HERE
+					#home-page-search
+						= form_tag("/search")
+							= select_tag(:location, Property.uniq.pluck(:location).uniq)
+							= select_tag(:term, ["Long Term", "Short Term"])
+							= submit_tag
+
 				td style="width:50px;"
 				td#home_right valign="top"
 					= image_tag "home/home_pic_frame_top.gif"

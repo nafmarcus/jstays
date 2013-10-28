@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131006232156) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "available_dates", force: true do |t|
     t.integer "property_id"
     t.date    "a_date"
@@ -46,6 +49,7 @@ ActiveRecord::Schema.define(version: 20131006232156) do
     t.text     "comments2"
     t.string   "video_link"
     t.boolean  "active"
+    t.float    "rate_long_term"
     t.float    "rate_daily_regular"
     t.float    "rate_daily_high"
     t.float    "rate_weekly_regular"

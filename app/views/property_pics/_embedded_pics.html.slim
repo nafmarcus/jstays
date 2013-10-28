@@ -3,12 +3,12 @@
 		#property-pics
 			-@property.property_pics.each_with_index do |pic, idx|
 				div id="image#{idx}" class="item #{'active' if idx ==0}"
-					= image_tag(pic.image.url(:w480))
+					= image_tag(pic.image.url(:h450))
 
 		#thumbnails
 			ul
 				-@property.property_pics.each_with_index do |pic, idx|
 					li class="#{'active' if idx == 0}"
-						= link_to image_tag(pic.image.url(:w80)), "#", img_target: "image#{idx}"
+						= link_to image_tag(pic.image.url(:h42)), "#", img_target: "image#{idx}"
 -else
 	|There are no pictures

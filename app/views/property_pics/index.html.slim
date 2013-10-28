@@ -15,7 +15,7 @@
 			.property-pic.col
 				span.my_label.col Photo #{index+1}
 				span.image.col
-					= image_tag(pic.image.url(:w80))
+					= image_tag(pic.image.url(:h42))
 				.remove-link
 				= link_to 'Remove', pic, method: :delete, data: { confirm: 'Are you sure?' }
 

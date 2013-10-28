@@ -27,6 +27,7 @@ class CreateProperty < ActiveRecord::Migration
     	t.string	:video_link
     	t.boolean	:active
 
+        t.float     :rate_long_term
         t.float     :rate_daily_regular
         t.float     :rate_daily_high
         t.float     :rate_weekly_regular

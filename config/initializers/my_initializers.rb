@@ -1,5 +1,25 @@
 Countries = ['USA', 'Israel', 'Canada', 'UK', 'Australia', 'France', 
 							'Switzerland', 'Brazil', 'Argentina', 'South Africa']
+Locations = [ "Australia - Melbourne",
+							"Australia - Sidney",
+							"Canada - Montreal",
+							"Canada - Toronto",
+							"England - London",
+							"Israel - Jerusalem",
+							"Israel - Tel Aviv",
+							"Israel - Modi'in",
+							"Israel - Netanya",
+							"Israel - Haifa",
+							"US - Chicago",
+							"US - Los Angeles",
+							"US - Miami",
+							"US - New Jersey",
+							"US - New Jersey",
+							"US - NY - Manhattan",
+							"US - NY - Brooklyn",
+							"US - NY - Queens",
+							"US - Washington D.C."
+						]
 PropertyTypes = {aprtment: "Apartment", basement: "Basement Apartment", duplex: "Duplex", house: "House"}
 Sharing = { exclusive: "Exclusive", shared: "Shared", roommate: "Roommate"}
 Duration = { short_term: "Short-term", long_term: "Long-term"}

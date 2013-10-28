@@ -52,15 +52,20 @@
 									|Duration
 								td
 									- Duration.each do |k, v|
-										= f.radio_button(:duration, k)
+										= f.radio_button(:duration, k, onclick: "duration_click('#{k}')")
 										= f.label("duration_#{k}".to_sym, v)
+							tr
+								th
+									= f.label :currency
+								td
+									= f.select(:currency, Currencies.collect {|k,v| [v,k]})
 							tr
 								td.formSpace colspan="2"
 							tr
 								th
 									|Rates
-								td
-									table
+								td#rate-fields-parent
+									table#short_term_rate_fields
 										tbody
 											tr
 												th
@@ -69,21 +74,23 @@
 											tr
 												td Daily
 												td 
-													= f.text_field(:rate_daily_regular, maxlength: "7")
+													= f.text_field(:rate_daily_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_daily_regular, :precision => 2) || 0))
 												td 
-													= f.text_field(:rate_daily_high, maxlength: "7")
+													= f.text_field(:rate_daily_high, maxlength: "7", :value => (number_with_precision(f.object.rate_daily_high, :precision => 2) || 0))
 											tr
 												td Weekly
 												td 
-													= f.text_field(:rate_weekly_regular, maxlength: "7")
+													= f.text_field(:rate_weekly_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_weekly_regular, :precision => 2) || 0))
 												td 
-													= f.text_field(:rate_weekly_high, maxlength: "7")
+													= f.text_field(:rate_weekly_high, maxlength: "7", :value => (number_with_precision(f.object.rate_weekly_high, :precision => 2) || 0))
 											tr
 												td Monthly
 												td 
-													= f.text_field(:rate_monthly_regular, maxlength: "7")
+													= f.text_field(:rate_monthly_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_monthly_regular, :precision => 2) || 0))
 												td 
-													= f.text_field(:rate_monthly_high, maxlength: "7")
+													= f.text_field(:rate_monthly_high, maxlength: "7", :value => (number_with_precision(f.object.rate_monthly_high, :precision => 2) || 0))
+									#long_term_rate_fields
+										= f.text_field :rate_long_term, maxlength: "27", :value => (number_with_precision(f.object.rate_long_term, :precision => 2) || 0)
 							tr
 								td.formSpace colspan="2"
 							tr
@@ -97,7 +104,7 @@
 								th
 									= f.label :location
 								td
-									= f.text_field :location
+									= f.select :location, Locations
 							tr
 								td.formSpace colspan="2"
 							tr

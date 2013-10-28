@@ -7,8 +7,8 @@ gem 'rails_12factor' #for heroku
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
-# gem 'pg'
-gem 'mysql2'
+gem 'pg'
+# gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -72,4 +72,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-# ruby "2.0.0"
+ruby "2.0.0"
