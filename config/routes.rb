@@ -8,7 +8,7 @@ Jstays::Application.routes.draw do
     resources :available_dates, shallow: true, only: [:index, :create, :update, :destroy]
   end
 
-  match '/search'                     => 'search#search', :as => 'search'
+  # match '/search'                     => 'search#search', :as => 'search'
   get '/about', to: 'static_pages#about'
   get '/faq',   to: 'static_pages#faq'
   match '/signup', to: 'users#new', via: 'get'

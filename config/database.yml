@@ -4,21 +4,15 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false 
   database: jstays
-  host: localhost
   pool: 5
-  username: postgres
-  password: postgres
-  # adapter: mysql2
-  # encoding: utf8
-  # reconnect: false 
-  # database: jstays
-  # pool: 5
-  # username: 
-  # password:
-  # socket: /tmp/mysql.sock
+  username: 
+  password:
+  socket: /tmp/mysql.sock
+  
   # adapter: postgresql
   # encoding: unicode
   # database: jstays
@@ -26,6 +20,7 @@ development:
   # pool: 5
   # username: postgres
   # password: postgres
+
   # adapter: sqlite3
   # database: db/development.sqlite3
   # pool: 5
