@@ -12,7 +12,7 @@ development:
   username: 
   password:
   socket: /tmp/mysql.sock
-  
+
   # adapter: postgresql
   # encoding: unicode
   # database: jstays
@@ -40,7 +40,8 @@ production:
   encoding: utf8
   database: <%= ENV['RDS_DB_NAME'] %>
   username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
+  password: 3722blackstone
+  # password: <%= ENV['RDS_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
   port: <%= ENV['RDS_PORT'] %>
   # adapter: postgresql
