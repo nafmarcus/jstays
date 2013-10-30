@@ -41,12 +41,6 @@ test:
   timeout: 5000
 
 production:
-  # adapter: postgresql
-  # encoding: unicode
-  # database: jstays
-  # pool: 5
-  # password:
-  #
   adapter: mysql2
   encoding: utf8
   database: <%= ENV['RDS_DB_NAME'] %>
@@ -54,3 +48,9 @@ production:
   password: <%= ENV['RDS_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
   port: <%= ENV['RDS_PORT'] %>
+  # adapter: postgresql
+  # encoding: unicode
+  # database: jstays
+  # pool: 5
+  # password:
+  #
