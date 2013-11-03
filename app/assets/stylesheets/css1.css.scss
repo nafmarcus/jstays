@@ -53,7 +53,8 @@ body									{	margin:0; background-repeat:repeat-x; }
 
 /*		HOME						*/
 
-#home_table							{	margin-top:12px; background-image:asset-url("home/bg_middle.jpg"); height:385px; }
+// #home_table							{	margin-top:12px; background-image:asset-url("home/bg_middle.jpg"); height:385px; }
+#home_table							{	background-image:asset-url("home/bg_middle.jpg"); height:385px; }
 #home_left							{	text-align:center; padding-top:50px; }
 #home_left div						{	margin:45px 0; }
 #home_place							{	display:inline-block; width:261px; height:47px;

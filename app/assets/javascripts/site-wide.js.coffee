@@ -16,3 +16,6 @@ jQuery ->
 	$('#long_term_rate_fields').hide()
 
 	$(".gitb-tooltip").tooltip()
+
+	# $('.slidebox').mSlidebox({autoPlayTime:7000, animSpeed:1000, easeType:"easeInOutQuint"})
+	$('.bxslider').bxSlider()

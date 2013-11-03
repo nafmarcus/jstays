@@ -1,9 +1,3 @@
-/ = javascript_include_tag("original/jquery.mSimpleSlidebox")
-javascript:
-	$(function() {
-		$(".mSlidebox").mSlidebox({autoPlayTime:6000});
-	});
-
 div style=""
 	table#home_table.fll_table
 		tbody
@@ -18,36 +12,18 @@ div style=""
 
 				td style="width:50px;"
 				td#home_right valign="top"
-					= image_tag "home/home_pic_frame_top.gif"
-					table
-						tbody
-							tr
-								td 	= image_tag "home/home_pic_frame_left.gif"
-								td
-									#page
-										.mSlidebox.slidebox
-											ul
-												li
-													.slideboxCaption
-														= image_tag "home/telaviv.jpg"
-												li
-													.slideboxCaption
-														= image_tag "home/london.jpg"
-												li
-													.slideboxCaption
-														= image_tag "home/toronto.jpg"
-												li
-													.slideboxCaption
-														= image_tag "home/newyork.jpg"
-												li
-													.slideboxCaption
-														= image_tag "home/montreal.jpg"
-												li
-													.slideboxCaption
-														= image_tag "home/jerusalem.jpg"
-
-								td	= image_tag "home/home_pic_frame_right.gif"
-
-					= image_tag "home/home_pic_frame_bottom.gif"
+					ul.bxslider
+						li
+							= image_tag "home/telaviv.jpg"
+						/ li
+						/ 	= image_tag "home/london.jpg"
+						/ li
+						/ 	= image_tag "home/toronto.jpg"
+						/ li
+						/ 	= image_tag "home/newyork.jpg"
+						/ li
+						/ 	= image_tag "home/montreal.jpg"
+						/ li
+						/ 	= image_tag "home/jerusalem.jpg"
 
 

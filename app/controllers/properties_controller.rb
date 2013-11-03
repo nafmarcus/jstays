@@ -53,7 +53,7 @@ class PropertiesController < ApplicationController
       allowed_params = [:user_id, :title, :description, :property_type, :sharing, :duration,
                     :currency, :other_expenses, :location, :address, 
                     :floor, :bedrooms, :bathrooms, :sleeps, :kosher, :amenities, :comments1, :comments2,
-                    :video_link, :active,
+                    :video_link, :active, :rate_long_term,
                     :rate_daily_regular, :rate_daily_high, :rate_weekly_regular,
                     :rate_weekly_high, :rate_monthly_regular, :rate_monthly_high]
       allowed_params.concat([:published]) if current_user.admin?
