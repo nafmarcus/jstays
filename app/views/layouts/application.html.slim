@@ -12,9 +12,12 @@ html
 		center
 			= render 'layouts/header'
 			= render 'layouts/subheader'
+
 			-flash.each do |key, value|
 				.alert class="alert-#{key}"
 					= value
+
 			.page-wrapper
 				= yield
+
 			= render 'layouts/footer'

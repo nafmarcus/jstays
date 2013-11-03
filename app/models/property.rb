@@ -14,6 +14,11 @@ class Property < ActiveRecord::Base
 
 	validate :rate_set
 
+	scope :available_between, ->(from, to) { joins(:available_dates).where("available_dates.a_date between ? and ?", from, to).uniq}
+
+	def display_rate 
+		duration == :short_term ? rate_daily_regular : rate_long_term
+	end
 	def rate_set
 		if rate_daily_regular.blank? && rate_daily_high.blank? && rate_weekly_regular.blank? &&
        rate_weekly_high.blank? && rate_monthly_regular.blank? && rate_monthly_high.blank?

@@ -14,3 +14,5 @@ jQuery ->
 		return false
 
 	$('#long_term_rate_fields').hide()
+
+	$(".gitb-tooltip").tooltip()

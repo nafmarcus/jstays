@@ -1,14 +1,14 @@
 = form_for(@property) do |f|
 
-	/ -if @property.errors.any?
-	/ 	#error_explanation
-	/ 		h2
-	/ 			| #{pluralize(@property.errors.count, "error")} prohibited this property from being saved:
+	-if @property.errors.any?
+		#error_explanation
+			h2
+				| #{pluralize(@property.errors.count, "error")} prohibited this property from being saved:
 
-	/ 		ul
-	/ 		-@property.errors.full_messages.each do |msg|
-	/ 			li
-	/ 				= msg
+			ul
+			-@property.errors.full_messages.each do |msg|
+				li
+					= msg
 
 	= f.hidden_field(:user_id, value: current_user.id.to_s)
 	table.regularForm align="center"

@@ -11,10 +11,10 @@ div style=""
 				td#home_left valign="top"
 					= image_tag "home/where.png"
 					#home-page-search
-						= form_tag("/search")
-							= select_tag(:location, Property.uniq.pluck(:location).uniq)
-							= select_tag(:term, ["Long Term", "Short Term"])
-							= submit_tag
+						= form_tag(search_path)
+							= select_tag(:duration, options_for_select([["Long Term", :long_term], ["Short Term", :short_term]]))
+							= select_tag(:location, options_for_select(Property.pluck(:location).uniq))
+							= submit_tag "Find a place"
 
 				td style="width:50px;"
 				td#home_right valign="top"
