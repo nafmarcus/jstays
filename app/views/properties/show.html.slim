@@ -2,14 +2,15 @@
 = javascript_include_tag("http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyAUHE7DBIl5AsXATHDYb8K4azS0l5x2jL4")
 / = javascript_include_tag("original/site-wide1")
 / = javascript_include_tag("original/initialize_map")
-
+-viewing_own_property = signed_in? && (current_user.id = property.user_id)
 .h1_wrapper
-	h1 = @property.title + "(" + @property.id.to_s + ")"
+	h1 = @property.title + " (# " + @property.id.to_s + ")"
 	h2 
 		| #{@property.property_type}  in #{@property.location} for #{@property.duration} 
 
 .main_area
-	= render "/properties/sub_menu", property: @property
+	- if admin_user? || viewing_own_property
+		= render "/properties/sub_menu", property: @property
 
 	table#rating_table
 	/ = javascript_include_tag "original/site-wide1"
