@@ -2,20 +2,20 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-	$('#jsddm > li').bind('mouseover', jsddm_open)
-	$('#jsddm > li').bind('mouseout',  jsddm_timer)
 
-	$('#property-pics .item').hide()
-	$('#property-pics .item.active').show()
+  $("#header-sign-in").hide()
+  $("#sign-in-link").click ->
+    $("#header-sign-in").show(1000)
 
-	$('#thumbnails a').click ->
-		$('#property-pics .item').hide()
-		$('#'+$(this).attr('img_target')).show()
-		return false
+  $("#property-pics .item").hide()
+  $("#property-pics .item.active").show()
 
-	$('#long_term_rate_fields').hide()
+  $('#thumbnails a').click ->
+    $('#property-pics .item').hide()
+    $('#'+$(this).attr('img_target')).show()
+    return false
 
-	$(".gitb-tooltip").tooltip()
+  $('#long_term_rate_fields').hide()
 
-	# $('.slidebox').mSlidebox({autoPlayTime:7000, animSpeed:1000, easeType:"easeInOutQuint"})
-	$('.bxslider').bxSlider()
+  $(".gitb-tooltip").tooltip()
+

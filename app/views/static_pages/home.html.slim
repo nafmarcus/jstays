@@ -1,29 +1,45 @@
-div style=""
-	table#home_table.fll_table
-		tbody
-			tr
-				td#home_left valign="top"
-					= image_tag "home/where.png"
-					#home-page-search
-						= form_tag(search_path)
-							= select_tag(:duration, options_for_select([["Long Term", :long_term], ["Short Term", :short_term]]))
-							= select_tag(:location, options_for_select(Property.pluck(:location).uniq))
-							= submit_tag "Find a place"
+= javascript_include_tag('original/jquery.mSimpleSlidebox')
 
-				td style="width:50px;"
-				td#home_right valign="top"
-					ul.bxslider
-						li
-							= image_tag "home/telaviv.jpg"
-						/ li
-						/ 	= image_tag "home/london.jpg"
-						/ li
-						/ 	= image_tag "home/toronto.jpg"
-						/ li
-						/ 	= image_tag "home/newyork.jpg"
-						/ li
-						/ 	= image_tag "home/montreal.jpg"
-						/ li
-						/ 	= image_tag "home/jerusalem.jpg"
+javascript:
+  (function($){
+    $(window).load(function(){
+      $(".slidebox").mSlidebox({autoPlayTime:6000});
+      });
+  })(jQuery);
 
+#home-page-pre-home_table
+  table#home_table.fll_table
+    tbody
+      tr
+        td#home_left valign='top'
+          = image_tag 'home/where.png'
+          #home-page-search
+            = form_tag(search_path)
+              = select_tag(:duration, options_for_select([["Long Term", :long_term], ["Short Term", :short_term]]))
+              br
+              = select_tag(:location, options_for_select(Property.pluck(:location).uniq))
+              br
+              = submit_tag 'Find a place'
 
+                td style='width:50px;'
+          td#home_right valign='top'
+            .slidebox.mSlidebox
+              ul
+                li
+                  div
+                    = image_tag 'home/telaviv.jpg'
+                li
+                  div
+                    = image_tag 'home/london.jpg'
+                li
+                  div
+                    = image_tag 'home/toronto.jpg'
+                li
+                  div
+                    = image_tag 'home/newyork.jpg'
+                li
+                  div
+                    = image_tag 'home/montreal.jpg'
+                li
+                  div
+                    = image_tag 'home/jerusalem.jpg'

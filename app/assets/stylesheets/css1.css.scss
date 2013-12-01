@@ -128,7 +128,7 @@ body									{	margin:0; background-repeat:repeat-x; }
 .slidebox,.slidebox .slideboxSlide{width:359px;}
 .slidebox,.slidebox .slideboxSlides,.slidebox .slideboxSlide{height:291px;}
 .slideboxContainer{margin:0;}
-.slidebox ul li .slideboxCaption{padding:0;}
+.slidebox ul li .slideboxCaption{padding:0 !important;}
 /*
 #banner_top { width:921px; height:15px; background-image:asset-url("banner_top.jpg); }
 #banner_bottom { width:921px; height:18px; background-image:asset-url("banner_bottom.jpg); }

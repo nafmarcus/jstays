@@ -11,6 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery-ui-1.10.3.min
+//= require jquery.ui.all
 //= require jquery_ujs
-//= require_tree .
+//= require_directory .

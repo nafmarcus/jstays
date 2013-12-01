@@ -71,6 +71,8 @@ function createMarker(place, color) {
 }
 
 $( document ).ready(function() {
-  map_initialize();
+  if ("google" in window) {
+    map_initialize();
+  }
 });
 

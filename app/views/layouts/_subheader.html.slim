@@ -4,7 +4,7 @@ table#logo_table.full_table
 			td#logo_top
 		tr
 			td
-				center
+			    div style="text-align: center; height:74px;"
 					= image_tag("logo_tag.png")
 
 		tr
@@ -14,11 +14,11 @@ table#logo_table.full_table
 						tr
 							td width="50px"
 							td#nav_home
-								= link_to('', root_url)
+								= current_page?('/') ? content_tag(:span, nil, title: 'Home') : link_to('', root_url)
 							td#nav_about
-								= link_to('', '/about')
+								= request.fullpath.include?('about') ? content_tag(:span, nil, title: 'About Us') : link_to('', '/about')
 							td#nav_faq
-								= link_to("", '/faq')
+								= request.fullpath.include?('faq') ? content_tag(:span, nil, title: 'FAQ') : link_to('', '/faq')
 							td width="430px"
 							td#nav_post
 								= link_to("", new_property_path)
