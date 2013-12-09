@@ -1,12 +1,12 @@
-= javascript_include_tag("//maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyAUHE7DBIl5AsXATHDYb8K4azS0l5x2jL4")
-= javascript_include_tag("original/initialize_map")
-= javascript_include_tag("original/site-wide1")
+= javascript_include_tag("/maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyAUHE7DBIl5AsXATHDYb8K4azS0l5x2jL4")
+= javascript_include_tag("/original/initialize_map")
+= javascript_include_tag("/original/site-wide1")
 
 -viewing_own_property = signed_in? && (current_user.id = @property.user_id)
 .h1_wrapper
 	h1 = @property.title + " (# " + @property.id.to_s + ")"
-	h2 
-		| #{@property.property_type}  in #{@property.location} for #{@property.duration} 
+	h2
+		| #{@property.property_type}  in #{@property.location} for #{@property.duration}
 
 .main_area
 	- if admin_user? || viewing_own_property
@@ -130,4 +130,4 @@
 					#map_outer
 						#map_small
 							|MAP TO BE DEFINED
-#prop-addr data-lat="#{@property.latitude.round(3)}" data-long="#{@property.longitude.round(3)}" 
+#prop-addr data-lat="#{@property.latitude.round(3)}" data-long="#{@property.longitude.round(3)}"
