@@ -1,7 +1,7 @@
 class Property < ActiveRecord::Base
 
   geocoded_by :address
-  after_validation :geocode
+  before_validation :geocode
   before_create :before_creating
 
   belongs_to	:user
@@ -11,7 +11,7 @@ class Property < ActiveRecord::Base
 
   validates :title, :property_type, :sharing, :duration, :location,
             :address, :bedrooms, :sleeps, presence: true
-  validates_presence_of :longitude, :latitude, :message => 'We could not locate your address in the way you entered it.'
+  validates_presence_of :longitude, :latitude, :message => ' - We could not locate your address in the way you entered it.'
 
   validate :rate_set
 
