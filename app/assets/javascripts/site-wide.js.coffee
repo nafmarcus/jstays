@@ -15,7 +15,5 @@ jQuery ->
     $('#'+$(this).attr('img_target')).show()
     return false
 
-  $('#long_term_rate_fields').hide()
-
   $(".gitb-tooltip").tooltip()
 

@@ -63,9 +63,10 @@
         / Right side
         td valign="top"
           #price_and_contact_owner
-            span PRICE
-            span 9 - USD Daily
-            = link_to image_tag("emailowner.png"), "mailto:"+@property.user.email
+            span PRICE:&nbsp;
+            span
+              = @property.display_rate
+            = link_to image_tag('emailowner.png'), "mailto:#{@property.user.email}"
 
           #right_info
             table.tabs align="center"
