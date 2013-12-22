@@ -1,191 +1,205 @@
 = form_for(@property) do |f|
 
-	-if @property.errors.any?
-		#error_explanation
-			h2
-				| #{pluralize(@property.errors.count, "error")} prohibited this property from being saved:
+  -if @property.errors.any?
+    #error_explanation
+      h2
+        | #{pluralize(@property.errors.count, "error")} prohibited this property from being saved:
 
-			ul
-			-@property.errors.full_messages.each do |msg|
-				li
-					= msg
+      ul
+      -@property.errors.full_messages.each do |msg|
+        li
+          = msg
 
-	= f.hidden_field(:user_id, value: current_user.id.to_s)
-	table.regularForm align="center"
-		tbody
-			tr
-				td valign="top"
-					table
-						tbody
-							tr
-								th
-									= f.label :title
-								td
-									= f.text_field :title
-							tr
-								td.formSpace colspan="2"
-							tr
-								th
-									= f.label :description
-								td
-									= f.text_area :description
-							tr
-								td.formSpace colspan="2"
-							tr
-								th
-									= f.label :property_type
-								td
-									= f.select(:property_type, PropertyTypes.collect {|k,v| [v,k]})
-							tr
-								td.formSpace colspan="2"
-							tr
-								th
-									|Sharing
-								td
-									- Sharing.each do |k, v|
-										= f.radio_button(:sharing, k)
-										= f.label("sharing_#{k}".to_sym, v)
-							tr
-								td.formSpace colspan="2"
-							tr
-								th
-									|Duration
-								td
-									- Duration.each do |k, v|
-										= f.radio_button(:duration, k, onclick: "duration_click('#{k}')")
-										= f.label("duration_#{k}".to_sym, v)
-							tr
-								th
-									= f.label :currency
-								td
-									= f.select(:currency, Currencies.collect {|k,v| [v,k]})
-							tr
-								td.formSpace colspan="2"
-							tr
-								th
-									|Rates
-								td#rate-fields-parent
-									table#short_term_rate_fields
-										tbody
-											tr
-												th
-												th Regular
-												th High Season
-											tr
-												td Daily
-												td 
-													= f.text_field(:rate_daily_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_daily_regular, :precision => 2) || 0))
-												td 
-													= f.text_field(:rate_daily_high, maxlength: "7", :value => (number_with_precision(f.object.rate_daily_high, :precision => 2) || 0))
-											tr
-												td Weekly
-												td 
-													= f.text_field(:rate_weekly_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_weekly_regular, :precision => 2) || 0))
-												td 
-													= f.text_field(:rate_weekly_high, maxlength: "7", :value => (number_with_precision(f.object.rate_weekly_high, :precision => 2) || 0))
-											tr
-												td Monthly
-												td 
-													= f.text_field(:rate_monthly_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_monthly_regular, :precision => 2) || 0))
-												td 
-													= f.text_field(:rate_monthly_high, maxlength: "7", :value => (number_with_precision(f.object.rate_monthly_high, :precision => 2) || 0))
-									#long_term_rate_fields
-										= f.text_field :rate_long_term, maxlength: "27", :value => (number_with_precision(f.object.rate_long_term, :precision => 2) || 0)
-							tr
-								td.formSpace colspan="2"
-							tr
-								th
-									= f.label :other_expenses
-								td
-									= f.text_area :other_expenses
-							tr
-								td.formSpace colspan="2"
-							tr
-								th
-									= f.label :location
-								td
-									= f.select :location, Locations
-							tr
-								td.formSpace colspan="2"
-							tr
-								th
-									= f.label :address
-								td
-									= f.text_area :address
-				td width="50px"
-				td width="50px" style="border-left:1px solid #A6CEFA;"
-					td valign="top"
-						table
-							tbody
-								tr
-									th
-										= f.label :floor
-									td
-										= f.select(:floor, Floors.collect {|k,v| [v,k]})
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label :bedrooms, "No. of Bedrooms"
-									td
-										= f.select(:bedrooms, Bedrooms)
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label :sleeps
-									td
-										= f.select(:sleeps, Sleeps)
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label :bathrooms, "No. of Bathrooms"
-									td
-										= f.select(:bathrooms, Bathrooms)
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label(:kosher, "Kosher?")
-									td
-										= f.check_box(:kosher)
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label(:comments1, "Comments")
-									td
-										= f.text_area(:comments1)
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label(:comments2, "General Comments")
-									td
-										= f.text_area(:comments2)
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label(:video_link, "Youtube Link")
-									td
-										= f.text_field(:video_link)
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label(:active, "Active")
-									td
-										= f.check_box(:active)
-					
-	#edit-amenities
-		h2 Amenities
-		-Amenities.each_with_index do |amenity, index|
-			.amenity-item
-				=' check_box_tag "amenities[#{index}]", amenity, (@property.amenities.include?(amenity) if @property.amenities)
-				= label_tag("amenities_#{index}", amenity)
-			= "<br>".html_safe if index%5 == 4
+  = f.hidden_field(:user_id, value: current_user.id.to_s)
+  table.regularForm align="center"
+    tbody
+      tr
+        td valign="top"
+          table
+            tbody
+              tr
+                th
+                  = f.label :title, '*Title:'
+                td
+                  = f.text_field :title, class: 'text'
+              tr
+                td.formSpace colspan="2"
+              tr
+                th
+                  = f.label :description
+                td
+                  = f.text_area :description
+              tr
+                td.formSpace colspan="2"
+              tr
+                th
+                  = f.label :property_type
+                td
+                  = f.select(:property_type, PropertyTypes.collect {|k,v| [v,k]})
+              tr
+                td.formSpace colspan="2"
+              tr
+                th
+                  |Sharing
+                td
+                  - Sharing.each do |k, v|
+                    = f.radio_button(:sharing, k)
+                    = f.label("sharing_#{k}".to_sym, v)
+              tr
+                td.formSpace colspan="2"
+              tr
+                th
+                  |Duration
+                td
+                  - Duration.each do |k, v|
+                    = f.radio_button(:duration, k, onclick: "duration_click('#{k}')")
+                    = f.label("duration_#{k}".to_sym, v)
+              tr
+                th
+                  = f.label :currency
+                td
+                  = f.select(:currency, Currencies.collect {|k,v| [v,k]})
+              tr
+                td.formSpace colspan="2"
+              tr
+                th
+                  |Rates
+                td#rate-fields-parent
+                  table#short_term_rate_fields
+                    tbody
+                      tr
+                        th
+                        th Regular
+                        th High Season
+                      tr
+                        td Daily
+                        td
+                          = f.text_field(:rate_daily_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_daily_regular, :precision => 2) || 0))
+                        td
+                          = f.text_field(:rate_daily_high, maxlength: "7", :value => (number_with_precision(f.object.rate_daily_high, :precision => 2) || 0))
+                      tr
+                        td Weekly
+                        td
+                          = f.text_field(:rate_weekly_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_weekly_regular, :precision => 2) || 0))
+                        td
+                          = f.text_field(:rate_weekly_high, maxlength: "7", :value => (number_with_precision(f.object.rate_weekly_high, :precision => 2) || 0))
+                      tr
+                        td Monthly
+                        td
+                          = f.text_field(:rate_monthly_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_monthly_regular, :precision => 2) || 0))
+                        td
+                          = f.text_field(:rate_monthly_high, maxlength: "7", :value => (number_with_precision(f.object.rate_monthly_high, :precision => 2) || 0))
+                  #long_term_rate_fields
+                    = f.text_field :rate_long_term, maxlength: "27", :value => (number_with_precision(f.object.rate_long_term, :precision => 2) || 0)
+              tr
+                td.formSpace colspan="2"
+              tr
+                th
+                  = f.label :other_expenses
+                td valign="top"
+                  = f.text_area :other_expenses
+                td
+                  span class='gitb-tooltip toolTip' title='Enter cleaning fee, realtor fee, maintenance fee and any other fees here.'
+              tr
+                td.formSpace colspan="2"
+              tr
+                th
+                  = f.label :location, '*Locations'
+                td
+                  = f.select :location, Locations
+              tr
+                td.formSpace colspan="2"
+              tr
+                th
+                  = f.label :address, '*Address'
+                td
+                  = f.text_area :address
+                td
+                  span title='The address field is required in order to display services like synogogues and kosher restaurants in your neighborhood. We will never display your exact address location.'  class='gitb-tooltip toolTip'
+        td width="50px"
+        td width="50px" style="border-left:1px solid #A6CEFA;"
+          td valign="top"
+            table
+              tbody
+                tr
+                  th
+                    = f.label :floor
+                  td
+                    = f.select(:floor, Floors.collect {|k,v| [v,k]})
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label :bedrooms, "No. of Bedrooms"
+                  td
+                    = f.select(:bedrooms, Bedrooms)
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label :sleeps
+                  td
+                    = f.select(:sleeps, Sleeps)
+                  td
+                    span class='gitb-tooltip toolTip' title='This number may be approximate. We recommend one per twin and two per double, queen and king.'
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label :bathrooms, "No. of Bathrooms"
+                  td
+                    = f.select(:bathrooms, Bathrooms)
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label(:kosher, "Kosher?")
+                  td
+                    = f.check_box(:kosher)
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label(:comments1, "Comments")
+                  td
+                    = f.text_area(:comments1)
+                  td
+                    span class='gitb-tooltip toolTip' title='Please feel free to describe the standards you require for keeping the kitchen kosher.'
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label(:comments2, "General Comments")
+                  td
+                    = f.text_area(:comments2)
+                  td
+                    span class='gitb-tooltip toolTip' title='Use this field to enter check in /check out, cancellation, pet, smoking etc. policies.'
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label(:video_link, 'Youtube Link')
+                  td
+                    = f.text_field(:video_link, class: 'text')
+                  td
+                    span class='gitb-tooltip toolTip' title='Enter the link of the Youtube video of your property. Example: http://www.youtube.com/watch?v=cevG1PVk or http://youtu.be/cevhhVk/'
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label(:active, 'Active')
+                  td
+                    = f.check_box(:active)
+                  td
+                    span class='gitb-tooltip toolTip' title='Please mark property as active if it is currently available.  Please mark inactive if you are not currently taking reservations for the property but you may be interested in doing so in the future.'
 
-	.actions
-		= f.submit "Submit", class: "btn btn-primary btn-large"
+  #edit-amenities
+    h2 Amenities
+    -Amenities.each_with_index do |amenity, index|
+      .amenity-item
+        =' check_box_tag "amenities[#{index}]", amenity, (@property.amenities.include?(amenity) if @property.amenities)
+        = label_tag("amenities_#{index}", amenity)
+      = "<br>".html_safe if index%5 == 4
+
+  .actions
+    = f.submit "Submit", class: "btn btn-primary btn-large"

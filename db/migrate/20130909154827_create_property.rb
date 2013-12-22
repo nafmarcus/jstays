@@ -5,10 +5,10 @@ class CreateProperty < ActiveRecord::Migration
 
     	t.string 	:title
     	t.text		:description
-    	t.string	:property_type
-    	t.string	:sharing
-    	t.string	:duration
-    	t.string	:currency #may not be used
+    	t.string	:property_type, :default => 'apartment'
+    	t.string	:sharing, :default => 'exclusive'
+    	t.string	:duration, :default => 'short_term'
+    	t.string	:currency, :default => 'usd' #may not be used
     	t.float		:other_expenses
     	t.string	:location
     	t.text		:address

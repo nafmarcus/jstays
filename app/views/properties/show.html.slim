@@ -2,130 +2,131 @@
 
 -viewing_own_property = signed_in? && (current_user.id = @property.user_id)
 .h1_wrapper
-	h1 = @property.title + " (# " + @property.id.to_s + ")"
-	h2
-		| #{@property.property_type}  in #{@property.location} for #{@property.duration}
+  h1 = @property.title + " (# " + @property.id.to_s + ")"
+  h2
+    | #{@property.property_type}  in #{@property.location} for #{@property.duration}
 
 .main_area
-	- if admin_user? || viewing_own_property
-		= render "/properties/sub_menu", property: @property
+  - if admin_user? || viewing_own_property
+    = render "/properties/sub_menu", property: @property
 
-	table#rating_table
-	table
-		tbody
-			tr
-				/ Left side
-				td valign="top"
+  table#rating_table
+  table
+    tbody
+      tr
+        / Left side
+        td valign="top"
 
-					#main_info
-						table.tabs align="center"
-							tbody
-								tr
-									th
-									td#photos_tab class="selected"
-										= link_to "Photos"
-									td#calendar_tab class="unselected"
-										= link_to "Calendar", "javascript:void(0)", onclick: "switch_tab('calendar', 'main_tabs')"
-									td#map_tab class="unselected"
-										= link_to "Map", "javascript:void(0)", onclick: "switch_tab('map', 'main_tabs')"
-									td#reviews_tab class="unselected"
-										= link_to "Reviews", "javascript:void(0)", onclick: "switch_tab('reviews', 'main_tabs')"
+          #main_info
+            table.tabs align="center"
+              tbody
+                tr
+                  th
+                  td#photos_tab class="selected"
+                    = link_to "Photos"
+                  td#calendar_tab class="unselected"
+                    = link_to "Calendar", "javascript:void(0)", onclick: "switch_tab('calendar', 'main_tabs')"
+                  td#map_tab class="unselected"
+                    = link_to "Map", "javascript:void(0)", onclick: "switch_tab('map', 'main_tabs')"
+                  td#reviews_tab class="unselected"
+                    = link_to "Reviews", "javascript:void(0)", onclick: "switch_tab('reviews', 'main_tabs')"
 
-						#current_content
-							#photos
-								div style="text-align: center;"
-								= render "/property_pics/embedded_pics", property: @property
-							#calendar style="position:absolute; top:0; left:-9999px;"
-								= render "/available_dates/embedded_calendar"
-							#map style="position:absolute; top:0; left:-9999px;"
-								#map-canvas-holder style="height: 600px; width:600px"
-									#map-canvas style="height: 100%;width:100%"
-							#reviews style="position:absolute; top:0; left:-9999px;"
-								-if @property.property_reviews.present?
-									.review_list
-										-@property.property_reviews.each do |review|
-											.review
-												= review.body
-												p Posted: #{review.created_at.to_s}
-								-else
-									| Be the first to review
+            #current_content
+              #photos
+                div style="text-align: center;"
+                = render "/property_pics/embedded_pics", property: @property
+              #calendar style="position:absolute; top:0; left:-9999px;"
+                = render "/available_dates/embedded_calendar"
+              #map style="position:absolute; top:0; left:-9999px;"
+                #map-canvas-holder style="height: 600px; width:600px"
+                  #map-canvas style="height: 100%;width:100%"
+              #reviews style="position:absolute; top:0; left:-9999px;"
+                -if @property.property_reviews.present?
+                  .review_list
+                    -@property.property_reviews.each do |review|
+                      .review
+                        = review.body
+                        p Posted: #{review.created_at.to_s}
+                -else
+                  | Be the first to review
 
-					#details_header Details
-					#details
-						div
-							h3 Description
-							= @property.description
-							h3 General Comments
-							= @property.comments1
-							h3 Kashrut
-							|Where is this coming from?
-				td style="width:40px;"
-				/ Right side
-				td valign="top"
-					#price_and_contact_owner
-						span PRICE
-						span 9 - USD Daily
-						= link_to image_tag("emailowner.png"), "mailto:"+@property.user.email
+          #details_header Details
+          #details
+            div
+              h3 Description
+              = @property.description
+              h3 General Comments
+              = @property.comments1
+              h3 Kashrut
+              |Where is this coming from?
+        td style="width:40px;"
+        / Right side
+        td valign="top"
+          #price_and_contact_owner
+            span PRICE
+            span 9 - USD Daily
+            = link_to image_tag("emailowner.png"), "mailto:"+@property.user.email
 
-					#right_info
-						table.tabs align="center"
-							tbody
-								tr
-									th
-									td#at_a_glance_tab.selected
-										= link_to "At a Glance", "javascript:void(0)", onclick: "switch_tab('at_a_glance', 'right_info')"
-									th
-									td#amenities_tab.unselected
-										= link_to "Amenities", "javascript:void(0)", onclick: "switch_tab('amenities', 'right_info')"
-									th
-						#right_info_inner
-							table#at_a_glance align="center" style="position: static; top: 0px; left: -9999px;"
-								tbody
-									tr
-										th.light valign="top" Type
-										td.light valign="top" = PropertyTypes[@property.property_type.to_sym]
-									tr
-										th.dark valign="top" Duration
-										td.dark valign="top" = Duration[@property.duration.to_sym]
-									tr
-										th.light valign="top" Location
-										td.light valign="top" = @property.location
-									tr
-										th.dark valign="top" # Bedrooms
-										td.dark valign="top" = @property.bedrooms
-									tr
-										th.light valign="top" # Bathrooms
-										td.light valign="top" = @property.bathrooms
-									tr
-										th.dark valign="top" # Bed
-										td.dark valign="top" = @property.sleeps
-									tr
-										th.light valign="top" Floor
-										td.light valign="top" = @property.floor
-									tr
-										th.dark valign="top" Other Fees
-										td.dark valign="top" = @property.other_expenses
+          #right_info
+            table.tabs align="center"
+              tbody
+                tr
+                  th
+                  td#at_a_glance_tab.selected
+                    = link_to "At a Glance", "javascript:void(0)", onclick: "switch_tab('at_a_glance', 'right_info')"
+                  th
+                  td#amenities_tab.unselected
+                    = link_to "Amenities", "javascript:void(0)", onclick: "switch_tab('amenities', 'right_info')"
+                  th
+            #right_info_inner
+              table#at_a_glance align="center" style="position: static; top: 0px; left: -9999px;"
+                tbody
+                  tr
+                    th.light valign="top" Type
+                    td.light valign="top" = PropertyTypes[@property.property_type.to_sym]
+                  tr
+                    th.dark valign="top" Duration
+                    td.dark valign="top" = Duration[@property.duration.to_sym]
+                  tr
+                    th.light valign="top" Location
+                    td.light valign="top" = @property.location
+                  tr
+                    th.dark valign="top" # Bedrooms
+                    td.dark valign="top" = @property.bedrooms
+                  tr
+                    th.light valign="top" # Bathrooms
+                    td.light valign="top" = @property.bathrooms
+                  tr
+                    th.dark valign="top" # Bed
+                    td.dark valign="top" = @property.sleeps
+                  tr
+                    th.light valign="top" Floor
+                    td.light valign="top" = @property.floor
+                  tr
+                    th.dark valign="top" Other Fees
+                    td.dark valign="top" = @property.other_expenses
 
-							table#amenities align="center" style="position: absolute; top: 0px; left: -9999px;"
-								tbody
-									tr
-										td.left-side valign="top"
-											-Amenities.slice(0, Amenities.count/2).each do |amenity|
-												div class="#{'found' if @property.amenities.include?(amenity)}"
-													= amenity
-										td.right-side
-											-Amenities.slice(Amenities.count/2, Amenities.count).each do |amenity|
-												div class="#{'found' if @property.amenities.include?(amenity)}"
-													= amenity
-					table#map_tabs
-						tbody
-							tr
-								td.selected
-									= link_to "Map", "#"
-								td.unselected
-									= link_to "Street View", "#"
+              table#amenities align="center" style="position: absolute; top: 0px; left: -9999px;"
+                tbody
+                  tr
+                    td.left-side valign="top"
+                      -Amenities.slice(0, Amenities.count/2).each do |amenity|
+                        div class="#{'found' if @property.amenities.include?(amenity)}"
+                          = amenity
+                    td.right-side
+                      -Amenities.slice(Amenities.count/2, Amenities.count).each do |amenity|
+                        div class="#{'found' if @property.amenities.include?(amenity)}"
+                          = amenity
+          table#map_tabs
+            tbody
+              tr
+                td.selected
+                  = link_to "Map", "#"
+                td.unselected
+                  = link_to "Street View", "#"
 
-					#map_outer
-						#map_small
-							|MAP TO BE DEFINED
+          #map_outer
+            #map_small
+              |MAP TO BE DEFINED
+
 #prop-addr data-lat="#{@property.latitude.round(3)}" data-long="#{@property.longitude.round(3)}"

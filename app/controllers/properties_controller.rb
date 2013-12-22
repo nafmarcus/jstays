@@ -19,7 +19,7 @@ class PropertiesController < ApplicationController
     @property.amenities = params[:amenities].collect{|k, v| v}.join(",") if params[:amenities]
     @property.user_id = params[:property][:user_id] || current_user.id
     if @property.save
-      redirect_to @property, notice: 'Property was successfully created.'
+      redirect_to @property, notice: 'Property was successfully created. You should add pictures of your property and set its availability.'
     else
       render action: 'new'
     end
@@ -51,7 +51,7 @@ class PropertiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
       allowed_params = [:user_id, :title, :description, :property_type, :sharing, :duration,
-                    :currency, :other_expenses, :location, :address, 
+                    :currency, :other_expenses, :location, :address,
                     :floor, :bedrooms, :bathrooms, :sleeps, :kosher, :amenities, :comments1, :comments2,
                     :video_link, :active, :rate_long_term,
                     :rate_daily_regular, :rate_daily_high, :rate_weekly_regular,

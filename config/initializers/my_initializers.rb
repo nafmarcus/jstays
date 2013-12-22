@@ -1,4 +1,4 @@
-Countries = ['USA', 'Israel', 'Canada', 'UK', 'Australia', 'France', 
+Countries = ['USA', 'Israel', 'Canada', 'UK', 'Australia', 'France',
 							'Switzerland', 'Brazil', 'Argentina', 'South Africa']
 Locations = [ "Australia - Melbourne",
 							"Australia - Sidney",
@@ -31,6 +31,6 @@ Bathrooms = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]
 Amenities = ["Air Conditioning", "Balcony", "Breakfast", "Buzzer/Intercom", "Cable TV",
 							"Dishwasher", "Doorman", "Elevator", "Family Friendly", "Fireplace",
 							"Garden", "Gym", "Handicap Accessible", "Heating", "Internet", "Kitchen",
-							"Microwave", "Parking", "Pets Allowed", "Pool", 
+							"Microwave", "Parking", "Pets Allowed", "Pool",
 							"Shabbat Elevator", "Smoking Allowed", "Suitable for Events",
-							"TV", "Washer/Dryer", "Wireless Internet"]
+							"TV", "Washer/Dryer"]
