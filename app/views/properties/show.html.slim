@@ -111,11 +111,11 @@
                   tr
                     td.left-side valign="top"
                       -Amenities.slice(0, Amenities.count/2).each do |amenity|
-                        div class="#{'found' if @property.amenities.include?(amenity)}"
+                        div class="#{'found' if @property.amenities && @property.amenities.include?(amenity)}"
                           = amenity
                     td.right-side
                       -Amenities.slice(Amenities.count/2, Amenities.count).each do |amenity|
-                        div class="#{'found' if @property.amenities.include?(amenity)}"
+                        div class="#{'found' if @property.amenities && @property.amenities.include?(amenity)}"
                           = amenity
           table#map_tabs
             tbody
