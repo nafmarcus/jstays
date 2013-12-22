@@ -5,10 +5,11 @@ module ApplicationHelper
   end
   def full_title(page_title)
     base_title = "Jstays"
+    environ = Rails.env.development? ? ' -Development' : ''
     if page_title.empty?
-      base_title
+      base_title + environ
     else
-      "#{base_title} | #{page_title}"
+      "#{base_title} | #{page_title}"  + environ
     end
   end
 end
