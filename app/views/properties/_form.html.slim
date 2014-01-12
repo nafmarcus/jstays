@@ -10,13 +10,41 @@
         li
           = msg
 
-  = f.hidden_field(:user_id, value: current_user.id.to_s)
+  -if signed_in?
+    = f.hidden_field(:user_id, value: current_user.id.to_s)
+  -else
+    #signup-line style='text-align: center;'
+      span.force-login
+        ' I have an account
+      ' -
+      span.open-signin
+        | I do not have an account
+
+  .smallGray
+    | * indicates required field.
+
   table.regularForm align="center"
     tbody
       tr
         td valign="top"
           table
             tbody
+              -if !signed_in?
+                tr.property-signin
+                  th
+                    = label_tag :email
+                  td
+                    = text_field_tag :email, nil, class: 'text', name: 'user[email]'
+                tr.property-signin
+                  th
+                    = label_tag :password
+                  td
+                    = password_field_tag :password, nil, class: 'text', name: 'user[password]'
+                tr.property-signin
+                  th
+                    = label_tag :password_confirmation, "Confirmation"
+                  td
+                    = password_field_tag :password_confirmation, nil, class: 'text', name: 'user[password_confirmation]'
               tr
                 th
                   = f.label :title, '*Title:'

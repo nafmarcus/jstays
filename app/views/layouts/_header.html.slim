@@ -1,25 +1,23 @@
 table#top_table.full_table
-	tr
-		td
-			nav.pull-right
-				ul
-					-if signed_in?
-						li
-							= link_to "My profile", edit_user_path(current_user), title: "#{current_user.email}", class:"gitb-tooltip"
-						li
-							= link_to "My Properties", properties_path(current_user)
-						li
-							= link_to "Sign Out", signout_path, method: "delete"
-					-else
-						li
-							= link_to "Sign In", "#", id: "sign-in-link"
-					li
-						= link_to "Currency: " + session[:currency], ''
-			-if !signed_in?
-                #header-sign-in.pull-right
-                    = form_for(:session, url: sessions_path, :html => {:id => "header-sign-in"}) do |f|
-                        =' f.label :email
-                        =' f.text_field :email
-                        =' f.label :password
-                        =' f.password_field :password
-                        = f.submit "Sign in", class: "btn btn-large btn-primary"
+  tr
+    td
+      nav.pull-right
+        ul
+          -if signed_in?
+            li
+              = link_to "My profile", edit_user_path(current_user), title: "#{current_user.email}", class:"gitb-tooltip"
+            li
+              = link_to "My Properties", properties_path(current_user)
+            li
+              = link_to "Sign Out", signout_path, method: "delete"
+          -else
+            li
+              = link_to "Sign In", "#", id: "sign-in-link"
+      -if !signed_in?
+        #header-sign-in.pull-right
+          = form_for(:session, url: sessions_path, :html => {:id => "header-sign-in"}) do |f|
+            =' f.label :email
+            =' f.text_field :email
+            =' f.label :password
+            =' f.password_field :password
+            = f.submit "Sign in", class: "btn btn-large btn-primary"

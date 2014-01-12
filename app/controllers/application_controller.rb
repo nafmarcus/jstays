@@ -7,16 +7,17 @@ class ApplicationController < ActionController::Base
   before_action :set_up
 
   def signed_in_user
-  	unless signed_in?
-  		store_location
-			redirect_to signin_url, notice: "Please sign in." 
-		end
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "Please sign in."
+    end
   end
 
   def self_or_admin
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
     redirect_to(root_url) unless (current_user.id == @user.id || current_user.admin?)
   end
+
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end

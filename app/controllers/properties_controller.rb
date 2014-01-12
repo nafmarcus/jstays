@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
 
   before_action :set_property, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, :except => [:show]
+  before_action :signed_in_user, :except => [:show, :new, :create]
 
   def index
     @properties = current_user.properties
@@ -17,6 +17,11 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(property_params)
     @property.amenities = params[:amenities].collect{|k, v| v}.join(",") if params[:amenities]
+    if !signed_in?
+      @user = User.new(user_params)
+      @user.save
+      sign_in @user
+    end
     @property.user_id = params[:property][:user_id] || current_user.id
     if @property.save
       redirect_to @property, notice: 'Property was successfully created. You should add pictures of your property and set its availability.'
@@ -56,7 +61,11 @@ class PropertiesController < ApplicationController
                     :video_link, :active, :rate_long_term,
                     :rate_daily_regular, :rate_daily_high, :rate_weekly_regular,
                     :rate_weekly_high, :rate_monthly_regular, :rate_monthly_high]
-      allowed_params.concat([:published]) if current_user.admin?
+      allowed_params.concat([:published]) if signed_in? && current_user.admin?
       params[:property].permit(allowed_params)
+    end
+
+    def user_params
+      params[:user].permit(:email, :password, :password_confirmation)
     end
 end
