@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    raise 'h'
     @user = User.new(user_params) # Not the final implementation!
     if @user.save
       sign_in @user
