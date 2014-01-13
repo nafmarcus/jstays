@@ -52,11 +52,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
 end
-#group :development do
-	gem 'better_errors'
-	gem 'binding_of_caller'
-	gem 'pry'
-#end
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry'
 
 group :test do
   gem 'selenium-webdriver'
