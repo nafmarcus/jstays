@@ -1,6 +1,6 @@
 .h1_wrapper
 	h1 Search Results
-	h2 
+	h2
 		=' pluralize(@properties.count, "property").titleize
 		| Matching Your Criteria
 
@@ -19,7 +19,7 @@
 									h2
 										= link_to truncate(property.title), property
 									div
-										= property.location
+										= property.city
 									span
 										| Available at #{property.available_dates.first_available.a_date.to_s}
 								th

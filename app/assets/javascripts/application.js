@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs
+//= require jquery.chained.min
 //= require_tree .

@@ -18,6 +18,23 @@ $( document ).ready(function() {
     duration_click('long_term');
   }
 
+  $('#property_country').bind('change', function () {
+    if ($(this).val() == 'USA') {
+      $('.zip-block').css('display','table-row')
+    } else {
+      $('.zip-block').css('display','none')
+      $('#property_zip').val('')
+    }
+  })
+  $('#property_city').bind('change', function () {
+    if ($(this).val() == 'Other') {
+      $('.other-city-block').css('display','table-row')
+    } else {
+      $('.other-city-block').css('display','none')
+      $('#other-city').val('')
+    }
+  })
+
 //    Sign in field stuff on property page
   $(".property-signin", "#new_property").css('display', 'none');
   $(".open-signin").bind('click', function () {

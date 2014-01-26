@@ -1,30 +1,30 @@
 .h1_wrapper
-	h1 Property Photos
+  h1 Property Photos
 
 .main_area
-	= render "/properties/sub_menu"
+  = render "/properties/sub_menu"
 
-	.intro_area
-		|Photos are strongly recommended as they will give renters a more realistic view of your property. 
-		| However, uploading too many large photos may stall the page loading. 
-		| Please use the re-size tool in order to make the picture more user-friendly or 
-		| upload only one at a time.
+  .intro_area
+    |Photos are strongly recommended as they will give renters a more realistic view of your property.
+    | However, uploading too many large photos may stall the page loading.
+    | Please use the re-size tool in order to make the picture more user-friendly or
+    | upload only one at a time.
 
-	#property-pics
-		-@property.property_pics.each_with_index do |pic, index|
-			.property-pic.col
-				span.my_label.col Photo #{index+1}
-				span.image.col
-					= image_tag(pic.image.url(:h42))
-				.remove-link
-				= link_to 'Remove', pic, method: :delete, data: { confirm: 'Are you sure?' }
+  #property-pics
+    -@property.property_pics.each_with_index do |pic, index|
+      .property-pic.col
+        span.my_label.col Photo #{index+1}
+        span.image.col
+          = image_tag(pic.image.url(:h42))
+        .remove-link
+        = link_to 'Remove', pic, method: :delete, data: { confirm: 'Are you sure?' }
 
-		-if @property.property_pics.count < 16
-			.new_photo.property-pic.col
-				= form_for([@property, @property_pic]) do |f|
-					span.my_label Photo #{@property.property_pics.count+1}
-					.field.form-item1
-						= f.label :image
-						= f.file_field :image
-						.actions
-					= f.submit
+    = form_tag({action: :create}, multipart: true) do
+      = hidden_field(:property_id, @property.id)
+      -(1..8-@property.property_pics.count).each do |idx|
+        .new_photo.property-pic.col
+          span.my_label Photo #{@property.property_pics.count+idx}
+          .field.form-item1
+            = file_field_tag "images[#{idx}]"
+      .actions
+        = submit_tag 'Upload Images'

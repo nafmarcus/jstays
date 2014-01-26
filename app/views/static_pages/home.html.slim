@@ -15,7 +15,7 @@ javascript:
             = form_tag(search_path)
               = select_tag(:duration, options_for_select([["Long Term", :long_term], ["Short Term", :short_term]]))
               br
-              = select_tag(:location, options_for_select(Property.pluck(:location).uniq))
+              = select_tag(:city, options_for_select(Property.pluck(:city).uniq))
               br
               = submit_tag 'Find a place'
 

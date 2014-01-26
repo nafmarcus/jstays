@@ -1,11 +1,17 @@
 #available-dates-view
-	-@date = Date.today
-	-[@date, @date+1.month, @date+2.month, @date+3.month].each_with_index do |tdate, idx|
-		.month-box
-			h2.month-name
-				= tdate.strftime("%B %Y")
-			= calendar tdate do |date|
-				- available_date = @property.available_date(date)
-				- level = available_date ? available_date.level : "none"
-				div class="#{level}"
-					= date.day
+  nav#availabe-data-nav
+    span#previous-four-months
+      = link_to '<Previous 4 months', property_path(@property, calendar_offset: @month_offset-4, open_tab: 'calendar')
+    span#next-four-months style='float:right'
+      = link_to 'Next 4 months>', property_path(@property, calendar_offset: @month_offset+4, open_tab: 'calendar')
+
+  -@date = Date.today + @month_offset.months
+  -[@date, @date+1.month, @date+2.month, @date+3.month].each_with_index do |tdate, idx|
+    .month-box
+      h2.month-name
+        = tdate.strftime("%B %Y")
+      = calendar tdate do |date|
+        - available_date = @property.available_date(date)
+        - level = available_date ? available_date.level : "none"
+        div class="#{level}"
+          = date.day

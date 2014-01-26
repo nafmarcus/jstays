@@ -1,6 +1,6 @@
 class Property < ActiveRecord::Base
 
-  geocoded_by :address
+  geocoded_by :full_address
   before_validation :geocode
   before_create :before_creating
   before_validation :set_empty_rates
@@ -10,14 +10,18 @@ class Property < ActiveRecord::Base
   has_many :available_dates, dependent: :destroy
   has_many :property_reviews, dependent: :destroy
 
-  validates :title, :property_type, :sharing, :duration, :location,
+  validates :title, :property_type, :sharing, :duration, :country, :city,
             :address, :bedrooms, :sleeps, presence: true
+  validates :zip, presence: true, if: "['USA'].include?(country)"
   validates_presence_of :longitude, :latitude, :message => ' - We could not locate your address. Please correct the formatting.'
 
   validate :rate_set
 
   scope :available_between, ->(from, to) { joins(:available_dates).where("available_dates.a_date between ? and ?", from, to).uniq }
 
+  def full_address
+    "#{address}, #{city} #{zip}, #{country}"
+  end
   def display_rate
     if duration.to_sym == :short_term
       "#{rate_daily_regular.to_i} #{currency.upcase} daily"

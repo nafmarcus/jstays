@@ -4,7 +4,7 @@
 .h1_wrapper
   h1 = @property.title + " (# " + @property.id.to_s + ")"
   h2
-    | #{@property.property_type}  in #{@property.location} for #{@property.duration}
+    | #{@property.property_type} in #{@property.city} for #{@property.duration}
 
 .main_area
   - if admin_user? || viewing_own_property
@@ -22,25 +22,26 @@
               tbody
                 tr
                   th
-                  td#photos_tab class="selected"
-                    = link_to "Photos"
-                  td#calendar_tab class="unselected"
-                    = link_to "Calendar", "javascript:void(0)", onclick: "switch_tab('calendar', 'main_tabs')"
-                  td#map_tab class="unselected"
-                    = link_to "Map", "javascript:void(0)", onclick: "switch_tab('map', 'main_tabs')"
-                  td#reviews_tab class="unselected"
-                    = link_to "Reviews", "javascript:void(0)", onclick: "switch_tab('reviews', 'main_tabs')"
+                  td#photos_tab class="#{@open_tab == 'photos' ? 'selected' : 'unselected'}"
+                    = link_to 'Photos'
+                  td#calendar_tab class="#{@open_tab=='calendar' ? 'selected' : 'unselected'}"
+                    = link_to 'Calendar', 'javascript:void(0)', onclick: "switch_tab('calendar', 'main_tabs')"
+                  td#map_tab class="#{@open_tab=='map' ? 'selected' : 'unselected'}"
+                    = link_to 'Map', 'javascript:void(0)', onclick: "switch_tab('map', 'main_tabs')"
+                  td#reviews_tab class="#{@open_tab=='reviews' ? 'selected' : 'unselected'}"
+                    = link_to 'Reviews', 'javascript:void(0)', onclick: "switch_tab('reviews', 'main_tabs')"
 
             #current_content
-              #photos
-                div style="text-align: center;"
+              -hidden = 'position:absolute; top:0; left:-9999px;'
+              -open = 'text-align: center;'
+              #photos style="#{@open_tab == 'photos' ? open : hidden}"
                 = render "/property_pics/embedded_pics", property: @property
-              #calendar style="position:absolute; top:0; left:-9999px;"
+              #calendar style="#{@open_tab == 'calendar' ? open : hidden}"
                 = render "/available_dates/embedded_calendar"
-              #map style="position:absolute; top:0; left:-9999px;"
+              #map style="#{@open_tab == 'map' ? open : hidden}"
                 #map-canvas-holder style="height: 600px; width:600px"
                   #map-canvas style="height: 100%;width:100%"
-              #reviews style="position:absolute; top:0; left:-9999px;"
+              #reviews style="#{@open_tab == 'reviews' ? open : hidden}"
                 -if @property.property_reviews.present?
                   .review_list
                     -@property.property_reviews.each do |review|
@@ -90,7 +91,7 @@
                     td.dark valign="top" = Duration[@property.duration.to_sym]
                   tr
                     th.light valign="top" Location
-                    td.light valign="top" = @property.location
+                    td.light valign="top" = @property.city
                   tr
                     th.dark valign="top" # Bedrooms
                     td.dark valign="top" = @property.bedrooms

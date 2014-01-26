@@ -8,6 +8,8 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @month_offset = params[:calendar_offset] ? params[:calendar_offset].to_i : 0
+    @open_tab = params[:open_tab] || 'photos'
   end
 
   def new
@@ -56,7 +58,7 @@ class PropertiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
       allowed_params = [:user_id, :title, :description, :property_type, :sharing, :duration,
-                    :currency, :other_expenses, :location, :address,
+                    :currency, :other_expenses, :country, :state, :city, :zip, :address,
                     :floor, :bedrooms, :bathrooms, :sleeps, :kosher, :amenities, :comments1, :comments2,
                     :video_link, :active, :rate_long_term,
                     :rate_daily_regular, :rate_daily_high, :rate_weekly_regular,
