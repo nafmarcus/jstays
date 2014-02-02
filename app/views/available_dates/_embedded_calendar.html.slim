@@ -9,9 +9,7 @@
   -[@date, @date+1.month, @date+2.month, @date+3.month].each_with_index do |tdate, idx|
     .month-box
       h2.month-name
-        = tdate.strftime("%B %Y")
+        = tdate.strftime('%B %Y')
       = calendar tdate do |date|
-        - available_date = @property.available_date(date)
-        - level = available_date ? available_date.level : "none"
-        div class="#{level}"
-          = date.day
+        div class="#{@property.available_date(date) ? @property.available_date(date).level : 'available'}"
+          = date.day if date.month == tdate.month

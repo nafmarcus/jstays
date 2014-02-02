@@ -35,14 +35,14 @@
   text-decoration: none;
 }
 .available input {
-  background: green;
-  color: white;
+  background: white;
+  color: black;
 }
 .low, .low input{
-  background: blue;
+  background: green;
   color: white !important;
 }
-.main_area .high {
+.booked, .booked input {
   background: red;
   color: white;
 }
@@ -89,6 +89,6 @@
 #available-dates-view {
   text-align: center;
 }
-#available-dates-view td { 
+#available-dates-view td {
   width: 35px;
 }

@@ -1,7 +1,7 @@
-= form_for(available_date, :html => {:class => "low"}) do |f|
-	= f.hidden_field :a_date
-	= hidden_field_tag :query_date, params[:date]
+= form_for(available_date, :html => {:class => 'low available-date', remote: true, :'data-type' => 'json'}) do |f|
+  = f.hidden_field :a_date
+  = hidden_field_tag :query_date, params[:date]
 
-	.actions
-		= f.submit  available_date.a_date.day.to_s
+  .actions
+    = f.submit  available_date.a_date.day.to_s
 
