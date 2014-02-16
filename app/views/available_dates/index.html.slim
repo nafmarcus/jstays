@@ -2,25 +2,29 @@
   h1 Property Vacancy Dates
 .main_area
   = render '/properties/sub_menu'
-  .intro_area
-    | Use this form to enter vacancy dates for the property.
-    | Green indicates that your property is available for rental.
-    | Red indicates that your property is booked.
-    | When you click on a specific date it will change first to green and then red.
+  .intro_area style="text-align:left;"
+    | Use this form to set vacancy dates for the property.
+      <span class='available-color'>Green</span> indicates that your property is available for rental.
+      <span class='booked-color'>Red</span> indicates that your property is booked.
+      When you click on a specific date it will change to green, then red then clear.
 
   center
     #all-month-boxes
-      -[@date - 1.month, @date, @date + 1.month].each_with_index do |tdate, idx|
+      -[@date, @date+1.month, @date+2.month].each_with_index do |tdate, idx|
         .month-box
           h2.month-name
             span.nav-left.pull-left
-              =' link_to('<', date: tdate.prev_month) if idx == 0
+              =' link_to('<', date: tdate - 3.months) if idx == 0
             = tdate.strftime('%B %Y')
-            br
-            =' link_to 'all', '#'
-            = link_to 'clear', '#'
             span.nav-right.pull-right
-              = link_to('>', date: tdate.next_month) if idx == 2
+              = link_to('>', date: tdate.next+1.months) if idx == 2
+
+          .mark-all-buttons
+            ' Mark all
+            =' link_to '', set_all_property_available_dates_path(@property, date: params[:date], month: tdate.month, year: tdate.year,to_do: 'clear'), class: 'clear'
+            =' link_to '' , set_all_property_available_dates_path(@property, date: params[:date], month: tdate.month, year: tdate.year, to_do: 'low'), class: 'low'
+            = link_to '' , set_all_property_available_dates_path(@property, date: params[:date], month: tdate.month, year: tdate.year, to_do: 'booked'), class: 'booked'
+
           = calendar tdate do |date|
             - available_date = @property.available_date(date) || AvailableDate.new(property: @property, level: 'low', a_date: date)
             -if tdate.month != date.month

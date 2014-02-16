@@ -1,3 +1,6 @@
+@low-availability-color: green;
+@booked-color: red;
+
 .calendar table {
   border-collapse: collapse;
   width: 100%;
@@ -39,12 +42,12 @@
   color: black;
 }
 .low, .low input{
-  background: green;
+  background: @low-availability-color;
   color: white !important;
 }
 .booked, .booked input {
-  background: red;
-  color: white;
+  background: @booked-color;
+  color: white !important;
 }
 .month-box {
   display: inline-block;

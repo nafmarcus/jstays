@@ -1,0 +1,23 @@
+@low-availability-color: green;
+@booked-color: red;
+
+.available-color { color: @low-availability-color !important;}
+.booked-color { color: @booked-color !important;}
+
+body#available_dates-index {
+  .mark-all-buttons {
+    a {
+      border: 1px solid black;
+      display: inline-block;
+      width: 1em;
+      margin-right: 3px;
+      height: 1em;
+      &.clear   {background-color: transparent;}
+      &.low {background-color: @low-availability-color;}
+      &.booked  {background-color: @booked-color;}
+    }
+  }
+}
+nav#available-dates-nav {
+  overflow: hidden;
+}

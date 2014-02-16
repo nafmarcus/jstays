@@ -1,96 +1,99 @@
 -provide(:title, "Edit user")
 .h1_wrapper
-	h1 Update Profile
+  h1 Update Profile
 .main-area
-	.intro-area
-		= render 'shared/error_messages'
-	.smallGray style="margin:10px 0; "
-		|*indicates required field
-	= form_for(@user) do |f|
-		table.regularForm align="center"
-			tbody
-				tr
-					td valign="top"
-						table
-							tbody
-								tr
-									th
-										= f.label :first_name, class: "required"
-									td
-										= f.text_field :first_name 
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label :last_name
-									td
-										= f.text_field :last_name 
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label :email
-									td
-										= f.text_field :email
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label :addtl_emails
-									td
-										= f.text_field :addtl_emails
-								tr
-									td.formSpace colspan="2"
-								tr
-									th
-										= f.label(:currency, class: "required")
-									td
-										= f.select(:currency, Currencies.collect {|k,v| [v,k]})
-								tr
-									td.formSpace colspan="2"
-					td width="50px"
-					td width="50px" style="border-left:1px solid #A6CEFA;"
- 					td valign="top"
- 						table
-							tbody
-								tr
-									th = f.label :country
-									td = f.text_field :country 
-								tr
-									td.formSpace colspan="2"
-								tr
-									th = f.label :zip
-									td = f.text_field :zip
-								tr
-									td.formSpace colspan="2"
-								tr
-									th = f.label :state
-									td = f.text_field :state
-								tr
-									td.formSpace colspan="2"
-								tr
-									th = f.label :city
-									td = f.text_field :city
-								tr
-									td.formSpace colspan="2"
-								tr
-									th = f.label :address
-									td = f.text_area :address
-								tr
-									td.formSpace colspan="2"
-								tr
-									th = f.label :phone_day, "Phone (Day)"
-									td = f.text_field :phone_day
-								tr
-									td.formSpace colspan="2"
-								tr
-									th = f.label :phone_eve, "Phone (Eve)"
-									td = f.text_field :phone_eve
-								tr
-									td.formSpace colspan="2"
-								tr
-									th = f.label :phone_cell, "Cellphone"
-									td = f.text_field :phone_cell
+  .intro-area
+    = render 'shared/error_messages'
+  .smallGray style="margin:10px 0; "
+    |*indicates required field
+  = form_for(@user) do |f|
+    table.regularForm align="center"
+      tbody
+        tr
+          td valign="top"
+            table
+              tbody
+                tr
+                  th
+                    = f.label :first_name, class: "required"
+                  td
+                    = f.text_field :first_name
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label :last_name
+                  td
+                    = f.text_field :last_name
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label :email, class: 'required'
+                  td
+                    = f.text_field :email
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label :addtl_emails
+                  td
+                    = f.text_field :addtl_emails
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th
+                    = f.label(:currency, class: "required")
+                  td
+                    = f.select(:currency, Currencies)
+                tr
+                  td.formSpace colspan="2"
 
-		.actions
-				= f.submit "Submit", class: "btn btn-large btn-primary"
+          td width="50px"
+          td width="50px" style="border-left:1px solid #A6CEFA;"
+          td valign="top"
+            table
+              tbody
+                tr
+                  th = f.label :country
+                  td = f.text_field :country
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th = f.label :zip
+                  td = f.text_field :zip
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th = f.label :state
+                  td = f.text_field :state
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th = f.label :city
+                  td = f.text_field :city
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th = f.label :address
+                  td = f.text_area :address
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th = f.label :phone_day, "Phone (Day)"
+                  td = f.text_field :phone_day
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th = f.label :phone_eve, "Phone (Eve)"
+                  td = f.text_field :phone_eve
+                tr
+                  td.formSpace colspan="2"
+                tr
+                  th = f.label :phone_cell, "Cellphone"
+                  td = f.text_field :phone_cell
+    .note-on-edit-profile-apge style='width: 780px; text-align:left; font-style: italic;'
+      | Although it is not necessary to include your phone number and address,
+        we encourage you to do so, so that we can contact you in case there is a problem.
+    .actions
+        = f.submit "Submit", class: "btn btn-large btn-primary"

@@ -1,34 +1,33 @@
 = form_tag(search_path, id: "filter_form")
 
-	= hidden_field_tag(:duration, params[:duration])
-	
-	h2 Amenities
-	-Amenities.each_with_index do |amenity, index|
-		span.amenity-item style="width:140px;"
-			=' check_box_tag "amenities[#{index}]", amenity, params[:amenities][index.to_s]
-			= label_tag("amenities_#{index}", amenity)
-		= "<br>".html_safe if index%2 == 1
+  = hidden_field_tag(:duration, params[:duration])
 
-	h2 Filter By
-	= label_tag(:bedrooms, "Bedrooms:")
-	= select_tag(:bedrooms, 	options_for_select(Bedrooms, params[:bedrooms]), {style: "width: 175px;", include_blank: true})
-	br
-	= label_tag(:bathrooms, "Bathrooms:")
-	= select_tag(:bathrooms, 	options_for_select(Bathrooms, params[:bathrooms]), {style: "width: 175px;", include_blank: true})
-	br
-	= label_tag(:sleeps, "Sleeps:")
-	= select_tag(:sleeps, 	options_for_select(Sleeps, params[:sleeps]), {style: "width: 175px;", include_blank: true})
+  h2 Amenities
+  -Amenities.each_with_index do |amenity, index|
+    span.amenity-item style="width:140px;"
+      =' check_box_tag "amenities[#{index}]", amenity, params[:amenities][index.to_s]
+      = label_tag("amenities_#{index}", amenity)
+    = "<br>".html_safe if index%2 == 1
 
-	h2 Location
-	= select_tag(:location, options_for_select(Property.pluck(:location).uniq), {style: "width: 250px;"})
+  h2 Filter By
+  = label_tag(:bedrooms, "Bedrooms:")
+  = select_tag(:bedrooms, 	options_for_select(Bedrooms, params[:bedrooms]), {style: "width: 175px;", include_blank: true})
+  br
+  = label_tag(:bathrooms, "Bathrooms:")
+  = select_tag(:bathrooms, 	options_for_select(Bathrooms, params[:bathrooms]), {style: "width: 175px;", include_blank: true})
+  br
+  = label_tag(:sleeps, "Sleeps:")
+  = select_tag(:sleeps, 	options_for_select(Sleeps, params[:sleeps]), {style: "width: 175px;", include_blank: true})
 
-	h2 Dates
-	= label_tag(:from_date, "From:")
-	= select_date(@from_date, {prefix: :from_date, order: [:day, :month, :year], start_year: Date.today.year, end_year: Date.today.year + 10})
-	br
-	= label_tag(:to_date, "From:")
-	= select_date(@to_date, {prefix: :to_date, order: [:day, :month, :year], start_year: Date.today.year, end_year: Date.today.year + 10})
-	br
-	= submit_tag "Filter"
+  h2 Location
+  = select_tag(:location, options_for_select(Property.pluck(:city).uniq, params[:city]), {style: "width: 250px;"})
 
-					
+  h2 Dates
+  = label_tag(:from_date, "From:")
+  = select_date(@from_date, {prefix: :from_date, order: [:day, :month, :year], start_year: Date.today.year, end_year: Date.today.year + 10})
+  br
+  = label_tag(:to_date, "From:")
+  = select_date(@to_date, {prefix: :to_date, order: [:day, :month, :year], start_year: Date.today.year, end_year: Date.today.year + 10})
+  br
+  = submit_tag "Filter"
+

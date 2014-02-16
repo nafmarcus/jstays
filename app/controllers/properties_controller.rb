@@ -13,13 +13,14 @@ class PropertiesController < ApplicationController
   end
 
   def new
-    @property = Property.new
+    currency = current_user.currency if signed_in?
+    @property = Property.new(currency: currency)
   end
 
   def create
     @property = Property.new(property_params)
     @property.amenities = params[:amenities].collect{|k, v| v}.join(",") if params[:amenities]
-    if !signed_in?
+    unless signed_in?
       @user = User.new(user_params)
       @user.save
       sign_in @user

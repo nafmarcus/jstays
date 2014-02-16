@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
 
   before_action :set_up
 
+  def user_signed_in?
+
+  end
   def signed_in_user
     unless signed_in?
       store_location

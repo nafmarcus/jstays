@@ -5,7 +5,9 @@ Jstays::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :properties do
     resources :property_pics, shallow: true, only: [:index, :destroy, :create]
-    resources :available_dates, shallow: true, only: [:index, :create, :update, :destroy]
+    resources :available_dates, shallow: true, only: [:index, :create, :update, :destroy, :set_all] do
+      get :set_all, :on => :collection
+    end
   end
 
   post '/search' => 'search#search', :as => 'search'
@@ -55,7 +57,7 @@ Jstays::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

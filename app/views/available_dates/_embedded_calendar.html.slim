@@ -1,8 +1,8 @@
 #available-dates-view
-  nav#availabe-data-nav
-    span#previous-four-months
+  nav#available-dates-nav
+    span#previous-four-months.pull-left
       = link_to '<Previous 4 months', property_path(@property, calendar_offset: @month_offset-4, open_tab: 'calendar')
-    span#next-four-months style='float:right'
+    span#next-four-months.pull-right
       = link_to 'Next 4 months>', property_path(@property, calendar_offset: @month_offset+4, open_tab: 'calendar')
 
   -@date = Date.today + @month_offset.months

@@ -37,11 +37,22 @@
               #photos style="#{@open_tab == 'photos' ? open : hidden}"
                 = render "/property_pics/embedded_pics", property: @property
               #calendar style="#{@open_tab == 'calendar' ? open : hidden}"
+                .main_info_text
                 = render "/available_dates/embedded_calendar"
               #map style="#{@open_tab == 'map' ? open : hidden}"
+                .main_info_text
+                  | Click a
+                  span.circle1.synogogue-circle
+                  | to see a neighborhood synogogue.
+                  br
+                  | Click a
+                  span.circle1.restaurant-circle
+                  | to view a kosher restaurant in the neighborhood.
                 #map-canvas-holder style="height: 600px; width:600px"
                   #map-canvas style="height: 100%;width:100%"
               #reviews style="#{@open_tab == 'reviews' ? open : hidden}"
+                .main_info_text
+                  = mail_to('reviews@jstays.com', 'Send us a review!', subject: "My experience with property #{@property.id}")
                 -if @property.property_reviews.present?
                   .review_list
                     -@property.property_reviews.each do |review|

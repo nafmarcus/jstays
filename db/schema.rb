@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20131006232156) do
     t.string   "property_type",        default: "apartment"
     t.string   "sharing",              default: "exclusive"
     t.string   "duration",             default: "short_term"
-    t.string   "currency",             default: "usd"
+    t.string   "currency"
     t.float    "other_expenses"
     t.string   "country"
     t.string   "state"

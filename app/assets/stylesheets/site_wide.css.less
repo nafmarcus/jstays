@@ -1,3 +1,7 @@
+@import "extra/mixins.css";
+@synogogue-color: red;
+@restaurant-color: gold;
+
 label.required:before, .jstays-label.required:before {
   content: " *";
   color: red;
@@ -35,6 +39,19 @@ body {
   vertical-align: top;
 }
 
+
+.circle1 {
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: sub;
+}
+.synogogue-circle {background: @synogogue-color;}
+.restaurant-circle {background: @restaurant-color;}
+.synogogue-color {color: @synogogue-color;}
+.restaurant-color {color: @restaurant-color;}
 .fitem1 {
   margin-bottom: 10px;
   input {

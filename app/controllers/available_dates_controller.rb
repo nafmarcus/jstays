@@ -54,6 +54,25 @@ class AvailableDatesController < ApplicationController
     end
   end
 
+  def set_all
+    @property = Property.find(params[:property_id])
+    start_date  = Date.new(params[:year].to_i, params[:month].to_i, 1)
+    end_date    = Date.new(params[:year].to_i, params[:month].to_i + 1, 1) - 1.day
+    @property.available_dates.in_month(params[:month], params[:year]).delete_all
+
+    case params[:to_do]
+    when 'low'
+      (start_date..end_date).each do |date|
+        @property.available_dates << AvailableDate.create(a_date: date, level: :low)
+      end
+    when 'booked'
+      (start_date..end_date).each do |date|
+        @property.available_dates << AvailableDate.create(a_date: date, level: :booked)
+      end
+    end
+    redirect_to property_available_dates_path(@property, date: params[:date])
+  end
+
   private
     def set_available_date
       @available_date = AvailableDate.find(params[:id])
