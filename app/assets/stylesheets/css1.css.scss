@@ -56,7 +56,7 @@ body									{	margin:0; background-repeat:repeat-x; }
 // #home_table							{	margin-top:12px; background-image:asset-url("home/bg_middle.jpg"); height:385px; }
 #home_table							{	background-image:asset-url("home/bg_middle.jpg"); height:385px; }
 #home_left							{	text-align:center; padding-top:50px; }
-#home_left div						{	margin:45px 0; }
+//#home_left div						{	margin:45px 0; }
 #home_place							{	display:inline-block; width:261px; height:47px;
 										background-image:asset-url("buttons/button_findplace1.png"); }
 #home_place:hover					{	background-image:asset-url("buttons/button_findplace2.png"); }
@@ -69,7 +69,7 @@ body									{	margin:0; background-repeat:repeat-x; }
 .home_short_term					{	display:inline-block; width:129px; height:32px;
 										background-image:asset-url("buttons/button_short1.png"); }
 .home_short_term:hover				{	background-image:asset-url("buttons/button_short2.png"); }
-#home_table select						{	width:400px; height:40px; font-size:25px; }
+//#home_table select						{	width:400px; height:40px; font-size:25px; }
 #home_right							{	padding-top:25px; padding-left:120px; }
 
 /*			PAGE STRUCTURE			*/
@@ -179,22 +179,22 @@ body									{	margin:0; background-repeat:repeat-x; }
 										-moz-border-radius-bottomright:10px; border-bottom-right-radius:10px;
 										-moz-border-radius-bottomleft:10px; border-bottom-left-radius:10px;
 
-										/* IE10 Consumer Preview */ 
+										/* IE10 Consumer Preview */
 										background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #FFE465 100%);
 
-										/* Mozilla Firefox */ 
+										/* Mozilla Firefox */
 										background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #FFE465 100%);
 
-										/* Opera */ 
+										/* Opera */
 										background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #FFE465 100%);
 
-										/* Webkit (Safari/Chrome 10) */ 
+										/* Webkit (Safari/Chrome 10) */
 										background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #FFE465));
 
-										/* Webkit (Chrome 11+) */ 
+										/* Webkit (Chrome 11+) */
 										background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #FFE465 100%);
 
-										/* W3C Markup, IE10 Release Preview */ 
+										/* W3C Markup, IE10 Release Preview */
 										background-image: linear-gradient(to top, #FFFFFF 0%, #FFE465 100%);
 									}
 .mini_menu td, .mini_menu th			{	padding:0 5px; }
@@ -270,22 +270,22 @@ a.tooltip:hover span				{	display:inline; position:absolute; background:#F4F9FC;
 	-moz-border-radius-bottomright:5px; border-bottom-right-radius:5px;
 	-moz-border-radius-bottomleft:5px; border-bottom-left-radius:5px;
 
-	/* IE10 Consumer Preview */ 
+	/* IE10 Consumer Preview */
 	background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #DFECF5 100%);
 
-	/* Mozilla Firefox */ 
+	/* Mozilla Firefox */
 	background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #DFECF5 100%);
 
-	/* Opera */ 
+	/* Opera */
 	background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #DFECF5 100%);
 
-	/* Webkit (Safari/Chrome 10) */ 
+	/* Webkit (Safari/Chrome 10) */
 	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #DFECF5));
 
-	/* Webkit (Chrome 11+) */ 
+	/* Webkit (Chrome 11+) */
 	background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #DFECF5 100%);
 
-	/* W3C Markup, IE10 Release Preview */ 
+	/* W3C Markup, IE10 Release Preview */
 	background-image: linear-gradient(to top, #FFFFFF 0%, #DFECF5 100%);
 }
 .toolTipMid, .toolTipMid * 			{	font-size:12px; line-height:18px; color:#183548; }
@@ -302,22 +302,22 @@ form #calContainer					{	width:630px;
 										-moz-border-radius-topleft:10px; border-top-left-radius:10px;
 										-moz-border-radius-bottomright:10px; border-bottom-right-radius:10px;
 										-moz-border-radius-bottomleft:10px; border-bottom-left-radius:10px;
-										/* IE10 Consumer Preview */ 
+										/* IE10 Consumer Preview */
 										background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #BDD4E3 100%);
 
-										/* Mozilla Firefox */ 
+										/* Mozilla Firefox */
 										background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #BDD4E3 100%);
 
-										/* Opera */ 
+										/* Opera */
 										background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #BDD4E3 100%);
 
-										/* Webkit (Safari/Chrome 10) */ 
+										/* Webkit (Safari/Chrome 10) */
 										background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #BDD4E3));
 
-										/* Webkit (Chrome 11+) */ 
+										/* Webkit (Chrome 11+) */
 										background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #BDD4E3 100%);
 
-										/* W3C Markup, IE10 Release Preview */ 
+										/* W3C Markup, IE10 Release Preview */
 										background-image: linear-gradient(to top, #FFFFFF 0%, #BDD4E3 100%);									}
 .yui-calendar .calnavleft, .yui-calendar .calnavright
 									{	display:none; }
@@ -327,7 +327,7 @@ form #calContainer					{	width:630px;
 									{	background-color:white; padding:10px; }
 .yui-skin-sam .yui-calendar .calheader
 									{	color:#0D4365; }
-									
+
 .clear_button						{	display:inline-block; width:66px; height:0; padding-top:19px; overflow:hidden;
 										background-image:asset-url("buttons/button_clear1.png"); }
 .clear_button:hover					{	background-image:asset-url("buttons/button_clear2.png"); }
@@ -437,7 +437,7 @@ form #calContainer					{	width:630px;
 #calendar_tab.unselected a			{	background-image:asset-url("calendar-icon-blue.png"); }
 #map_tab.unselected a				{	background-image:asset-url("map-icon-blue.png"); }
 #reviews_tab.unselected a			{	background-image:asset-url("reviews-icon-blue.png"); }
-				
+
 #current_content					{	background-color:#f3f3f3; margin-left:6px; margin-right:6px; padding:15px;
 										border-left:1px solid #c2cad8; border-right:1px solid #c2cad8; border-bottom:1px solid #c2cad8; }
 
@@ -564,7 +564,7 @@ form #calContainer					{	width:630px;
 #amenities div						{	padding-left:17px; padding-top:3px; padding-bottom:3px; color:#E3E5E5; }
 #amenities .found					{	color:#326EAA; background-image:asset-url("checked.gif"); background-repeat:no-repeat;
 										background-position:0 7px; }
-										
+
 /*		SMALL MAP					*/
 
 #map_tabs							{	margin-top:20px; width:322px; }
@@ -674,13 +674,13 @@ h2.blue								{	background-color:#eff3f7; border:1px solid #bcd1e7; padding-top
 
 /*		NOT SURE IF USED!			*/
 
-#new_property						{	
+#new_property						{
 	/*display:inline-block; */
-	width:129px; 
-	height:0; 
-	padding-top:31px; 
+	width:129px;
+	height:0;
+	padding-top:31px;
 	overflow:hidden;
-	background-image:asset-url("buttons/button_submit1.png"); 
+	background-image:asset-url("buttons/button_submit1.png");
 }
 #new_property:hover					{	background-image:asset-url("buttons/button_submit2.png"); }
 

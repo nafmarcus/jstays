@@ -15,6 +15,25 @@
 // 	background : lighten(#363636, 30%);
 
 // }
+#signup-line {
+  margin-bottom: 15px;
+  .force-login.button {
+    background: asset-url('buttons/button_login_yes1.png') no-repeat;
+    display: inline-block;
+    height: 31px;
+    width: 238px;
+    &:hover {background-image: image-url('buttons/button_login_yes2.png');}
+    margin-right: 25px;
+  }
+  .open-signin.button {
+    background: asset-url('buttons/button_login_no1.png') no-repeat;
+    display: inline-block;
+    height: 31px;
+    width: 294px;
+    &:hover {background-image: image-url('buttons/button_login_no2.png');}
+  }
+}
+
 #at_a_glance {
 	th, td {
 		padding-left: 7px;

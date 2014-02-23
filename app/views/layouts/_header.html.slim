@@ -13,6 +13,8 @@ table#top_table.full_table
           -else
             li
               = link_to "Sign In", "#", id: "sign-in-link"
+            li
+              = link_to 'Register', signup_path
       -if !signed_in?
         #header-sign-in.pull-right
           = form_for(:session, url: sessions_path, :html => {:id => "header-sign-in"}) do |f|

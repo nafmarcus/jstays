@@ -13,11 +13,12 @@ javascript:
           = image_tag 'home/where.png'
           #home-page-search
             = form_tag(search_path)
-              = select_tag(:duration, options_for_select([["Long Term", :long_term], ["Short Term", :short_term]]))
-              br
               = select_tag(:city, options_for_select(Property.pluck(:city).uniq))
-              br
-              = submit_tag 'Find a place'
+              /-short_term_cities = Property.where(duration: 'short_term').uniq.pluck(:city)
+              /= select_tag(:duration, options_for_select([["Long Term", :long_term], ["Short Term", :short_term]]))
+              .actions
+                = image_submit_tag('buttons/button_short1.png', duration: :short_term, class: 'pull-left')
+                = image_submit_tag('buttons/button_long1.png', duration: :long_term, class: 'pull-right')
 
                 td style='width:50px;'
           td#home_right valign='top'
