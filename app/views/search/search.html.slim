@@ -5,31 +5,34 @@
     | Matching Your Criteria
 
 .main_area
-  table
-    tbody
-      td valign="top"
-        table style="width:630px;"
-          tbody
-            -@properties.each do |property|
-              tr.single_property_result valign="top"
-                td class="thumb" valign="top"
-                  = link_to image_tag("no_photo.jpg"), property
-                th
-                td class="second" valign="top"
-                  h2
-                    = link_to truncate(property.title), property
-                  div
-                    = property.city
-                  span
-                    | Available at #{property.available_dates.first_available.a_date.to_s}
-                th
-                td class="third" valign="top"
-                  div
-                    = property.display_rate
-                  = link_to "", property, class: "view_details"
+  -if @properties.blank?
+    | I'm sorry. We could not find any property that fit your criteria.
+  -else
+    table
+      tbody
+        td valign="top"
+          table style="width:630px;"
+            tbody
+              -@properties.each do |property|
+                tr.single_property_result valign="top"
+                  td class="thumb" valign="top"
+                    = link_to image_tag("no_photo.jpg"), property
+                  th
+                  td class="second" valign="top"
+                    h2
+                      = link_to truncate(property.title), property
+                    div
+                      = property.city
+                    span
+                      | Available at #{property.available_dates.first_available.a_date.to_s}
+                  th
+                  td class="third" valign="top"
+                    div
+                      = property.display_rate
+                    = link_to "", property, class: "view_details"
 
-      td width="30px"
+        td width="30px"
 
-      td valign="top"
-        h2.blue Modify Your Search
-        = render "search_form"
+        td valign="top"
+          h2.blue Modify Your Search
+          = render "search_form"
