@@ -7,7 +7,7 @@ table#top_table.full_table
             li
               = link_to "My profile", edit_user_path(current_user), title: "#{current_user.email}", class:"gitb-tooltip"
             li
-              = link_to "My Properties", properties_path(current_user)
+              = link_to "My Properties", properties_path
             li
               = link_to "Sign Out", signout_path, method: "delete"
           -else
