@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
   def search
-
+    binding.pry
     params[:duration] = :long_term if params.keys.join('--').include?('long_term')
     params[:duration] = :short_term if params.keys.join('--').include?('short_term')
 
@@ -21,7 +21,5 @@ class SearchController < ApplicationController
       @properties = @properties.where(sql)
     end
     params[:amenities] ||= {}
-
   end
-
 end
