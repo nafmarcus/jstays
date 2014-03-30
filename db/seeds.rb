@@ -23,7 +23,12 @@ one_bedroom = Property.create(user_id: 1, title: "Queens location", property_typ
   floor: "3", bedrooms: 1.0, bathrooms: 1.0, sleeps: 1, kosher: true, amenities: "Family Friendly,Heating,Internet", 
   active: true, rate_long_term: 1.0)
 
-two_bedroom = Property.create(user_id: 1, title: "Fancy Shmancy", property_type: "Three Bedrooms", description: "right near the hi-line", sharing: "Shared", duration: "short_term", 
-  country: "USA", currency: "USD", rate_daily_regular: 150.00, rate_daily_high: 200.00, city: "New York", 
-  address: "601 west 26th street", zip: 10001, bedrooms: 3.0, sleeps: 3, bathrooms: 2.0, sleeps: 3, 
-  kosher: true, amenities: "Family Friendly,Heating,Internet")
+two_bedroom = Property.create(user_id: 1, title: "Fancy Shmancy", property_type: "Three Bedrooms", 
+  description: "right near the hi-line", sharing: "Shared", duration: "short_term", country: "USA", 
+  currency: "USD", rate_daily_regular: 150.00, rate_daily_high: 200.00, city: "New York", address: "601 west 26th street", 
+  zip: 10001, bedrooms: 3.0, sleeps: 3, bathrooms: 2.0, sleeps: 3, kosher: true, amenities: "Family Friendly,Heating,Internet")
+
+AvailableDate.destroy_all
+  times_square = AvailableDate.create(property_id: 1, a_date: "2014-03-27", level: "no idea")
+  queens_location = AvailableDate.create(property_id: 2, a_date: "2014-04-27", level: "no idea")
+  fancy_shmancy = AvailableDate.create(property_id: 3, a_date: "2014-04-07", level: "no idea")
