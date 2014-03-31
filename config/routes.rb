@@ -10,7 +10,7 @@ Jstays::Application.routes.draw do
     end
   end
 
-  post '/search' => 'search#search', :as => 'search'
+  get '/search', to: 'search#search', :as => 'search'
   get '/about', to: 'static_pages#about'
   get '/faq',   to: 'static_pages#faq'
   match '/signup', to: 'users#new', via: 'get'
