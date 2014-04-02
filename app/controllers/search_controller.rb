@@ -16,6 +16,7 @@ class SearchController < ApplicationController
     filter[:sleeps] = params[:sleeps] if params[:sleeps].present?
     filter[:city] = params[:city]
     filter[:duration] = params[:duration]
+    filter[:active] = true
     @properties = Property.where(filter).available_between(@from_date, @to_date)
     #binding.pry
     if params[:amenities]
