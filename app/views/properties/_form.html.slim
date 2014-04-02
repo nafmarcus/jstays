@@ -96,7 +96,7 @@
                 td.formSpace colspan="2"
               tr
                 th
-                  |Rates
+                  = @property.duration == 'short_term' ? "Rates" : "Monthly Rates"
                 td#rate-fields-parent
                   table#short_term_rate_fields
                     tbody
@@ -139,7 +139,7 @@
                 th
                   = f.label :country, '*Country'
                 td
-                  = f.select :country, Countries, {}, id: 'property_country'
+                  = f.select :country, Countries.sort, {}, id: 'property_country'
               tr
                 td.formSpace colspan="2"
               tr

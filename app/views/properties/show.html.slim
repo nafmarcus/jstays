@@ -130,6 +130,6 @@
                       -Amenities.slice(Amenities.count/2, Amenities.count).each do |amenity|
                         div class="#{'found' if @property.amenities && @property.amenities.include?(amenity)}"
                           = amenity
-
+= link_to "Back to search", search_path
 
 #prop-addr data-lat="#{@property.latitude.round(3)}" data-long="#{@property.longitude.round(3)}"
