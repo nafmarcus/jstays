@@ -15,7 +15,7 @@ two_bedroom_ny = Property.create(user_id: 1, title: "Times Square", property_typ
   title: "Greate Place", description: "Excellent deal in midtown", sharing: "Shared", duration: "short_term", 
   country: "USA", currency: "USD", rate_daily_regular: 115.00, rate_daily_high: 145.00, city: "New York", 
   address: "500 7th avenue", zip: 10018, bedrooms: 2.0, sleeps: 2, bathrooms: 1.0, sleeps: 1, 
-  kosher: true, amenities: "Family Friendly,Heating,Internet")
+  kosher: true, active: true, amenities: "Family Friendly,Heating,Internet")
 
 one_bedroom_qn = Property.create(user_id: 1, title: "Queens location", property_type: "One Bedroom", 
   description: "wonderful one bedroom", sharing: "Exclusive", duration: "long_term", currency: "USD", 
@@ -26,7 +26,7 @@ one_bedroom_qn = Property.create(user_id: 1, title: "Queens location", property_
 three_bedroom_ny = Property.create(user_id: 1, title: "Fancy Shmancy", property_type: "Three Bedrooms", 
   description: "right near the hi-line", sharing: "Shared", duration: "short_term", country: "USA", 
   currency: "USD", rate_daily_regular: 150.00, rate_daily_high: 200.00, city: "New York", address: "601 west 26th street", 
-  zip: 10001, bedrooms: 3.0, sleeps: 3, bathrooms: 2.0, sleeps: 3, kosher: true, amenities: "Family Friendly,Heating,Internet")
+  zip: 10001, active: true, bedrooms: 3.0, sleeps: 3, bathrooms: 2.0, sleeps: 3, kosher: true, amenities: "Family Friendly,Heating,Internet")
 
 one_bedroom_qn = Property.create(user_id: 2, title: "Steinway", property_type: "One Bedroom", 
   description: "best of queens", sharing: "Shared", duration: "short_term", currency: "USD", 
@@ -37,12 +37,12 @@ one_bedroom_qn = Property.create(user_id: 2, title: "Steinway", property_type: "
 three_bedroom_bk = Property.create(user_id: 2, title: "Clinton Hill", property_type: "Three Bedrooms", 
   description: "Do the Right Thing!", sharing: "Shared", duration: "short_term", country: "USA", 
   currency: "USD", rate_daily_regular: 65.00, rate_daily_high: 95.00, city: "Brooklyn", address: "451 Classon Avenue", 
-  zip: 11238, bedrooms: 3.0, sleeps: 3, bathrooms: 1.0, sleeps: 3, kosher: true, amenities: "Family Friendly,Heating,Internet")
+  zip: 11238, active: true, bedrooms: 3.0, sleeps: 3, bathrooms: 1.0, sleeps: 3, kosher: true, amenities: "Family Friendly,Heating,Internet")
 
 two_bedroom_bk = Property.create(user_id: 2, title: "Near Jefferson Stop", property_type: "Two Bedrooms", 
   description: "Viva Bushwick!", sharing: "Shared", duration: "short_term", country: "USA", 
   currency: "USD", rate_daily_regular: 80.00, rate_daily_high: 100.00, city: "Brooklyn", address: "30 Wyckoff Avenue", 
-  zip: 11237, bedrooms: 2.0, sleeps: 2, bathrooms: 1.0, sleeps: 3, kosher: true, amenities: "Family Friendly,Heating,Internet")
+  zip: 11237, active: true, bedrooms: 2.0, sleeps: 2, bathrooms: 1.0, sleeps: 3, kosher: true, amenities: "Family Friendly,Heating,Internet")
 
 two_bedroom_ny = Property.create(user_id: 2, title: "Close to Wall street", property_type: "Two Bedrooms", 
   description: "Financial District", sharing: "Shared", duration: "long_term", country: "USA", 
