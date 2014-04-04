@@ -91,7 +91,7 @@
                 th
                   = f.label :currency
                 td
-                  = f.select(:currency, Currencies)
+                  = f.select(:currency, Currencies.sort)
               tr
                 td.formSpace colspan="2"
               tr
