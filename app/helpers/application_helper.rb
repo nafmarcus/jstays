@@ -12,4 +12,9 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"  + environ
     end
   end
+  def sort_city_select(var)
+    test_cities = var.each {|member| member.pop}
+    test_cities = var.each {|member| member.pop}
+    test_cities.sort! { |x,y| x <=> y}
+  end
 end

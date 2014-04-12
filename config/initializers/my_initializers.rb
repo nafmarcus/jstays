@@ -1,6 +1,6 @@
 #Countries = ['USA', 'Israel', 'Canada', 'UK', 'Australia', 'France',
 #             'Switzerland', 'Brazil', 'Argentina', 'South Africa']
-Locations = { :Australia => { :cities => %w(Sidney Melbourne Other``),
+Locations = { :Australia => { :cities => %w(Sidney Melbourne Other),
                               :currency => 'AUD'},
               :Canada =>  { :cities => %w(Montreal Toronto Other),
                            :currency => 'CAD'},

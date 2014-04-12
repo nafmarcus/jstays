@@ -15,6 +15,7 @@ class PropertiesController < ApplicationController
   def new
     currency = current_user.currency if signed_in?
     @property = Property.new(currency: currency)
+    flash.now[:notice] = "During our trial period, your posting will be accepted for free"
   end
 
   def create
