@@ -18,7 +18,7 @@ class SearchController < ApplicationController
     filter[:duration] = params[:duration]
     filter[:active] = true
     @properties = Property.where(filter).available_between(@from_date, @to_date)
-    #binding.pry
+    #require 'pry'; binding.pry
     if params[:amenities]
       sql = params[:amenities].collect { |idx, amenity| "amenities like '%#{amenity}%'" }.join(' and ')
       @properties = @properties.where(sql)
