@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-	has_secure_password
+	has_secure_password validations: false
 	
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token

@@ -12,14 +12,15 @@ javascript:
         td#home_left valign='top'
           = image_tag 'home/where.png'
           #home-page-search
-            = form_tag(search_path)
+            = form_tag("/search", method: "get") do
               = select_tag(:city, options_for_select(Property.pluck(:city).uniq))
               /-short_term_cities = Property.where(duration: 'short_term').uniq.pluck(:city)
               /= select_tag(:duration, options_for_select([["Long Term", :long_term], ["Short Term", :short_term]]))
               .actions
                 = image_submit_tag('buttons/button_short1.png', name: :short_term, class: 'pull-left')
                 = image_submit_tag('buttons/button_long1.png', name: :long_term, class: 'pull-right')
-
+                = image_submit_tag('buttons/button_findroommate1.png', name: :shared)
+                
                 td style='width:50px;'
           td#home_right valign='top'
             .slidebox.mSlidebox
