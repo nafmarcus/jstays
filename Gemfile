@@ -59,6 +59,7 @@ group :development do
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'selenium-webdriver'
   gem 'factory_girl_rails', '4.2.1'
 end
