@@ -140,11 +140,11 @@
                 th
                   = f.label :country, '*Country'
                 td
-                  = f.select :country, Countries, {}, id: 'property_country'
+                  = f.select :country, Countries.sort, {}, id: 'property_country'
               tr
                 td.formSpace colspan="2"
               tr
-                -city_select = Locations.collect { |country_name, country_info | country_info[:cities].collect {|city| [city, city, class: country_name] } }.flatten(1)
+                -city_select = Locations.collect { |country_name, country_info | country_info[:cities].collect {|city| [city, city, class: country_name] }.sort_by { |(city)| [city == "Other" ? 1 : 0, city]}.push(["Other"]) }.flatten(1)
                 th
                   = f.label :city, '*City'
                 td
