@@ -123,8 +123,12 @@
                           = f.text_field(:rate_monthly_regular, maxlength: "7", :value => (number_with_precision(f.object.rate_monthly_regular, :precision => 2) || 0))
                         td
                           = f.text_field(:rate_monthly_high, maxlength: "7", :value => (number_with_precision(f.object.rate_monthly_high, :precision => 2) || 0))
-                  #long_term_rate_fields
-                    = f.text_field :rate_long_term, maxlength: '27', :value => (number_with_precision(f.object.rate_long_term, :precision => 2) || 0)
+                  table#long_term_rate_fields
+                    tbody
+                      tr
+                        td Monthly
+                        td
+                          = f.text_field :rate_long_term, maxlength: '27', :value => (number_with_precision(f.object.rate_long_term, :precision => 2) || 0)
               tr
                 td.formSpace colspan="2"
               tr
